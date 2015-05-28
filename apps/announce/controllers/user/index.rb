@@ -15,7 +15,13 @@ module Announce::Controllers::User
     expose :user
 
     def call(params)
-      @user = UserRepository.find(params[:id])
+      if params[:id]
+        @user = UserRepository.find(params[:id])
+      elsif params[:name]
+        @user = UserRepository.find_by_name(params[:name])
+      else
+        @user = nil
+      end
     end
   end
 end
