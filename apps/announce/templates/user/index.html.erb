@@ -1,0 +1,7 @@
+<h1>user#index</h1>
+
+<% users.each do |user| %>
+  <p>
+  <a href='<%= user.id %>'><%= user.name %></a>
+  </p>
+<% end %>

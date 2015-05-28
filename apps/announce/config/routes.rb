@@ -8,3 +8,5 @@
 get '/', to: 'home#index'
 get '/article', to: 'article#index'
 get '/article/:id', to: 'article#show'
+get '/user', to: 'user#index'
+get '/user/:id', to: 'user#show'
