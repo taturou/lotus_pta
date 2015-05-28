@@ -8,3 +8,14 @@ end
 
 task default: :test
 task spec: :test
+
+namespace :db do
+  task :migrate do
+    require_relative 'lib/pta/migrator'
+    PTA::Migrator.migrate!
+  end
+
+  task seed: :migrate do
+    load 'db/seeds.rb'
+  end
+end
