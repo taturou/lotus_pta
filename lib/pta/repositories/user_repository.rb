@@ -4,11 +4,10 @@ class UserRepository
   include Lotus::Repository
 
   def self.find_by_name(name)
-    self.all.each do |user|
-      if user.name == name
-        return user
-      end
-    end
-    nil
+    query do
+      where(name: name).    # 名前が name
+        desc(:id).          # 降順（一番新しいのが手前）
+        limit(1)            # リストの最初だけ
+    end.first               # 配列の最初の要素を返す
   end
 end
