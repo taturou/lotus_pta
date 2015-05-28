@@ -1,5 +1,5 @@
 require 'lotus/model'
-Dir["#{ __dir__ }/pta_sqlite3/**/*.rb"].each { |file| require_relative file }
+Dir["#{ __dir__ }/pta/**/*.rb"].each { |file| require_relative file }
 
 Lotus::Model.configure do
   # Database adapter
@@ -7,14 +7,14 @@ Lotus::Model.configure do
   # Available options:
   #
   #  * Memory adapter
-  #    adapter type: :memory, uri: 'memory://localhost/pta_sqlite3_development'
+  #    adapter type: :memory, uri: 'memory://localhost/pta_development'
   #
   #  * SQL adapter
-  #    adapter type: :sql, uri: 'sqlite://db/pta_sqlite3_development.sqlite3'
-  #    adapter type: :sql, uri: 'postgres://localhost/pta_sqlite3_development'
-  #    adapter type: :sql, uri: 'mysql://localhost/pta_sqlite3_development'
+  #    adapter type: :sql, uri: 'sqlite://db/pta_development.sqlite3'
+  #    adapter type: :sql, uri: 'postgres://localhost/pta_development'
+  #    adapter type: :sql, uri: 'mysql://localhost/pta_development'
   #
-  adapter type: :sql, uri: ENV['PTA_SQLITE3_DATABASE_URL']
+  adapter type: :sql, uri: ENV['PTA_DATABASE_URL']
 
   ##
   # Database mapping
