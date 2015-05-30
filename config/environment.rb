@@ -5,5 +5,5 @@ require_relative '../lib/pta'
 require_relative '../apps/announce/application'
 
 Lotus::Container.configure do
-  mount Announce::Application, at: 'announce'
+  mount Announce::Application, at: '/'
 end
