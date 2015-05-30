@@ -1,7 +1,7 @@
-module Announce
+module Pta
   module Views
     class ApplicationLayout
-      include Announce::Layout
+      include Pta::Layout
     end
   end
 end

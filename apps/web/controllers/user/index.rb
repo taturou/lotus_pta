@@ -1,6 +1,6 @@
-module Announce::Controllers::User
+module Pta::Controllers::User
   class Index
-    include Announce::Action
+    include Pta::Action
 
     expose :users
 
@@ -10,7 +10,7 @@ module Announce::Controllers::User
   end
 
   class Show
-    include Announce::Action
+    include Pta::Action
 
     expose :user
 

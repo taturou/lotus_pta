@@ -1,6 +1,6 @@
-module Announce::Controllers::Home
+module Pta::Controllers::Home
   class Index
-    include Announce::Action
+    include Pta::Action
 
     expose :time
 

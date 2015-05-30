@@ -1,6 +1,6 @@
-module Announce::Views::Home
+module Pta::Views::Home
   class Index
-    include Announce::View
+    include Pta::View
 
     def hoge
       time.strftime("%Y-%m-%d %a %H:%M:%S")

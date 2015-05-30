@@ -1,6 +1,6 @@
 require 'lotus/helpers'
 
-module Announce
+module Pta
   class Application < Lotus::Application
     configure do
       ##
@@ -73,7 +73,7 @@ module Announce
       #
       # See: http://www.rubydoc.info/gems/rack/Rack/Session/Cookie
       #
-      # sessions :cookie, secret: ENV['ANNOUNCE_SESSIONS_SECRET']
+      # sessions :cookie, secret: ENV['WEB_SESSIONS_SECRET']
 
       # Configure Rack middleware for this application
       #
@@ -105,7 +105,7 @@ module Announce
       #                         'postgres://localhost/bookshelf'
       #                         'mysql://localhost/bookshelf'
       #
-      # adapter type: :file_system, uri: ENV['ANNOUNCE_DATABASE_URL']
+      # adapter type: :file_system, uri: ENV['WEB_DATABASE_URL']
 
       # Configure a database mapping
       # See: http://www.rubydoc.info/gems/lotus-model#Data_Mapper
@@ -118,7 +118,7 @@ module Announce
 
       # The layout to be used by all views
       #
-      layout :application # It will load Announce::Views::ApplicationLayout
+      layout :application # It will load Pta::Views::ApplicationLayout
 
       # The relative path to templates
       #
@@ -194,7 +194,7 @@ module Announce
       # FRAMEWORKS
       #
 
-      # Configure the code that will yield each time Announce::Action is included
+      # Configure the code that will yield each time Pta::Action is included
       # This is useful for sharing common functionality
       #
       # See: http://www.rubydoc.info/gems/lotus-controller#Configuration
@@ -203,7 +203,7 @@ module Announce
         # before :authenticate!    # run an authentication before callback
       end
 
-      # Configure the code that will yield each time Announce::View is included
+      # Configure the code that will yield each time Pta::View is included
       # This is useful for sharing common functionality
       #
       # See: http://www.rubydoc.info/gems/lotus-view#Configuration

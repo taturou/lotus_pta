@@ -1,13 +1,13 @@
-module Announce::Controllers::Article
+module Pta::Controllers::Article
   class Index
-    include Announce::Action
+    include Pta::Action
 
     def call(params)
     end
   end
 
   class Show
-    include Announce::Action
+    include Pta::Action
 
     expose :id
 

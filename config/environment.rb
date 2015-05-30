@@ -2,8 +2,8 @@ require 'rubygems'
 require 'bundler/setup'
 require 'lotus/setup'
 require_relative '../lib/pta'
-require_relative '../apps/announce/application'
+require_relative '../apps/web/application'
 
 Lotus::Container.configure do
-  mount Announce::Application, at: '/'
+  mount Pta::Application, at: '/'
 end
