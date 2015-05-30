@@ -7,7 +7,7 @@
 # Please, uncomment the following line to have a working example.
 get '/', to: 'home#index'
 get '/article', to: 'article#index'
-get '/article/:id', to: 'article#show'
+get '/article/:id', id: /\d+/, to: 'article#show'
 get '/user', to: 'user#index'
 get '/user/:id', id: /\d+/, to: 'user#show'
 get '/user/:name', name: /[A-Za-z_\-]+/, to: 'user#show'

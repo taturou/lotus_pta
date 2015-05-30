@@ -1,1 +1,22 @@
-<h1>article#show:<%= id %></h1>
+<h1>article#show</h1>
+<% if article %>
+  <p>
+    #<%= article.id %>
+    ,
+    <%= article.title %>
+    ,
+    <%= article.content %>
+    ,
+    <%= article.user.name %>
+    ,
+    <%= article.created_at %>
+  </p>
+<% else %>
+  <% if params[:id] %>
+    <p>id:<%= params[:id] %> is not available</p>
+  <% elsif params[:name] %>
+    <p>name:<%= params[:name] %> is not available</p>
+  <% else %>
+    <p>Invalid URL</p>
+  <% end %>
+<% end %>

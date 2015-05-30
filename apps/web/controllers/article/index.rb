@@ -2,17 +2,20 @@ module Pta::Controllers::Article
   class Index
     include Pta::Action
 
+    expose :articles
+
     def call(params)
+      @articles = ArticleRepository.all
     end
   end
 
   class Show
     include Pta::Action
 
-    expose :id
+    expose :article
 
     def call(params)
-      @id = params[:id]
+      @article = ArticleRepository.find(params[:id])
     end
   end
 end

@@ -1,1 +1,7 @@
 <h1>article#index</h1>
+
+<% articles.each do |article| %>
+  <p>
+  <a href='<%= article.id %>'><%= article.title %></a>
+  </p>
+<% end %>
