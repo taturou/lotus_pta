@@ -11,6 +11,21 @@
     ,
     <%= article.created_at %>
   </p>
+  <% if requests %>
+    <% requests.each do |request| %>
+    <p>
+      <%= request.id %>
+      ,
+      <%= request.http_client_ip %>
+      ,
+      <%= request.http_user_agent %>
+      ,
+      <%= request.article_id %>
+      ,
+      <%= request.requested_at %>
+    </p>
+    <% end %>
+  <% end %>
 <% else %>
   <% if params[:id] %>
     <p>id:<%= params[:id] %> is not available</p>

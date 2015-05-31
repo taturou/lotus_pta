@@ -4,3 +4,13 @@
 <p><a href="user/">User</a></p>
 
 <p><%= time %></p>
+
+<hr>
+
+<% params.env.each do |key,val| %>
+    <p>params.env['<%= key %>'] = "<%= val %>"</p>
+<% end %>
+
+<% ENV.each do |key,val| %>
+    <p>ENV['<%= key %>'] = "<%= val %>"</p>
+<% end %>
