@@ -1,6 +1,6 @@
 require 'lotus/helpers'
 
-module Pta
+module Web
   class Application < Lotus::Application
     configure do
       ##
@@ -118,7 +118,7 @@ module Pta
 
       # The layout to be used by all views
       #
-      layout :application # It will load Pta::Views::ApplicationLayout
+      layout :application # It will load Web::Views::ApplicationLayout
 
       # The relative path to templates
       #
@@ -194,7 +194,7 @@ module Pta
       # FRAMEWORKS
       #
 
-      # Configure the code that will yield each time Pta::Action is included
+      # Configure the code that will yield each time Web::Action is included
       # This is useful for sharing common functionality
       #
       # See: http://www.rubydoc.info/gems/lotus-controller#Configuration
@@ -203,7 +203,7 @@ module Pta
         # before :authenticate!    # run an authentication before callback
       end
 
-      # Configure the code that will yield each time Pta::View is included
+      # Configure the code that will yield each time Web::View is included
       # This is useful for sharing common functionality
       #
       # See: http://www.rubydoc.info/gems/lotus-view#Configuration

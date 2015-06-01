@@ -1,6 +1,6 @@
-module Pta::Views::Home
+module Web::Views::Home
   class Index
-    include Pta::View
+    include Web::View
 
   end
 end

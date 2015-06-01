@@ -1,11 +1,11 @@
-module Pta::Views::Article
+module Web::Views::Article
   class Index
-    include Pta::View
+    include Web::View
 
   end
 
   class Show
-    include Pta::View
+    include Web::View
 
     def already_read?(user)
       index = requests.index do |request|

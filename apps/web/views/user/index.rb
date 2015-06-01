@@ -1,11 +1,11 @@
-module Pta::Views::User
+module Web::Views::User
   class Index
-    include Pta::View
+    include Web::View
 
   end
 
   class Show
-    include Pta::View
+    include Web::View
 
   end
 end

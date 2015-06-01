@@ -1,7 +1,7 @@
-module Pta
+module Web
   module Views
     class ApplicationLayout
-      include Pta::Layout
+      include Web::Layout
     end
   end
 end

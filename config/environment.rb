@@ -5,5 +5,5 @@ require_relative '../lib/pta'
 require_relative '../apps/web/application'
 
 Lotus::Container.configure do
-  mount Pta::Application, at: '/'
+  mount Web::Application, at: '/'
 end

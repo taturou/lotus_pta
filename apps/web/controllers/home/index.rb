@@ -1,6 +1,6 @@
-module Pta::Controllers::Home
+module Web::Controllers::Home
   class Index
-    include Pta::Action
+    include Web::Action
 
     expose :time
 

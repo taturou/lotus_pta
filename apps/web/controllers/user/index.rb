@@ -1,6 +1,6 @@
-module Pta::Controllers::User
+module Web::Controllers::User
   class Index
-    include Pta::Action
+    include Web::Action
 
     expose :users
 
@@ -10,7 +10,7 @@ module Pta::Controllers::User
   end
 
   class Show
-    include Pta::Action
+    include Web::Action
 
     expose :user
 
