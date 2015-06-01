@@ -25,7 +25,7 @@
   <h1>リンクを作成</h1>
   <% users.each do |user| %>
     <p>
-      <%= user.name %>
+    <a href="<%= article.id %>/link/<%= user.id %>"><%= user.name %></a>
     <p>
   <% end %>
 

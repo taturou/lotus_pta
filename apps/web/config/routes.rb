@@ -8,6 +8,7 @@
 get '/', to: 'home#index'
 get '/article', to: 'article#index'
 get '/article/:id', id: /\d+/, to: 'article#show'
+get '/article/:id/link/:user_id', id: /\d+/, user_id: /\d+/, to: 'article#link'
 get '/user', to: 'user#index'
 get '/user/:id', id: /\d+/, to: 'user#show'
 get '/user/:name', name: /[A-Za-z_\-]+/, to: 'user#show'

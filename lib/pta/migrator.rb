@@ -7,7 +7,7 @@ module PTA
 
     def self.migrate!
       db = Sequel.connect(ENV.fetch('PTA_DATABASE_URL'))
-      Sequel::Migrator.run(db, "#{__dir__}/../../db/migrations")
+      Sequel::Migrator.run(db, "#{__dir__}/../../db/migrations", :use_transactions=>true)
     end
   end
 end
