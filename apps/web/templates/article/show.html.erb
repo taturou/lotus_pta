@@ -1,31 +1,48 @@
 <h1>article#show</h1>
 <% if article %>
-  <p>
-    #<%= article.id %>
-    ,
-    <%= article.title %>
-    ,
-    <%= article.content %>
-    ,
-    <%= article.user.name %>
-    ,
-    <%= article.created_at %>
-  </p>
-  <% if requests %>
-    <% requests.each do |request| %>
+  <h1>記事</h1>
+  <p>記事番号: <%= article.id %></p>
+  <p>タイトル: <%= article.title %></p>
+  <p>内容: <%= article.content %></p>
+  <p>作成者: <%= article.user.name %></p>
+  <p>作成日: <%= article.created_at %></p>
+
+  <hr>
+  <h1>既読情報</h1>
+  <% users.each do |user| %>
     <p>
-      <%= request.id %>
+      <%= user.name %>
+      :
+      <% if already_read?(user) %>
+        既読
+      <% else %>
+        未読
+      <% end %>
+    <p>
+  <% end %>
+
+  <hr>
+  <h1>リンクを作成</h1>
+  <% users.each do |user| %>
+    <p>
+      <%= user.name %>
+    <p>
+  <% end %>
+
+  <hr>
+  <h1>アクセスログ</h1>
+  <% requests.each do |request| %>
+    <p>
+      <%= request.requested_at %>
+      <br>
+      <%= request.user.name %>
       ,
       <%= request.http_client_ip %>
       ,
       <%= request.http_user_agent %>
-      ,
-      <%= request.article_id %>
-      ,
-      <%= request.requested_at %>
     </p>
-    <% end %>
   <% end %>
+
 <% else %>
   <% if params[:id] %>
     <p>id:<%= params[:id] %> is not available</p>

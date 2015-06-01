@@ -25,5 +25,6 @@ collection :requests do
   attribute :http_client_ip,  String
   attribute :http_user_agent, String
   attribute :article_id,      Integer
+  attribute :user_id,         Integer
   attribute :requested_at,    DateTime
 end

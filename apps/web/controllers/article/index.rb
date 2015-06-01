@@ -12,11 +12,13 @@ module Pta::Controllers::Article
   class Show
     include Pta::Action
 
-    expose :article, :requests
+    expose :article, :requests, :users
 
     def call(params)
       @article = ArticleRepository.find(params[:id])
-      @requests = RequestRepository.find_by_article(@article);
+      @requests = RequestRepository.find_by_article(@article)
+      @users = UserRepository.all
+      @users.delete(@article.user)
     end
   end
 end
