@@ -4,10 +4,8 @@ class CreateRequests < Sequel::Migration
       primary_key :id
       String :http_client_ip
       String :http_user_agent
-      Integer :user_id
-      index :user_id
-      Integer :article_id
-      index :article_id
+      Integer :spectator_id
+      index :spectator_id
       datetime :requested_at, default: Time.now
     end
   end

@@ -3,7 +3,9 @@ class CreateSpectator < Sequel::Migration
     create_table :spectators do
       primary_key :id
       Integer :article_id
+      index :article_id
       Integer :user_id
+      index :user_id
       datetime :created_at
       String :md5
     end

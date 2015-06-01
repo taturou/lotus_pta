@@ -2,21 +2,21 @@ require 'lotus/entity'
 
 class Request
   include Lotus::Entity
-  attributes :http_client_ip, :http_user_agent, :article_id, :user_id, :requested_at # :id is implicit
+  attributes :http_client_ip, :http_user_agent, :spectator_id, :requested_at # :id is implicit
 
-  def user=(user)
-    self.user_id = user.id
+  def spectator=(spectator)
+    self.spectator_id = spectator.id
+  end
+
+  def spectator
+    @spectator ||= SpectatorRepository.find(spectator_id)
   end
 
   def user
-    @user ||= UserRepository.find(self.user_id)
-  end
-
-  def article=(article)
-    self.article_id = article.id
+    @user ||= self.spectator.user
   end
 
   def article
-    @article ||= ArticleRepository.find(self.article_id)
+    @article ||= self.spectator.article
   end
 end

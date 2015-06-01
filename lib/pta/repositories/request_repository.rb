@@ -4,8 +4,10 @@ class RequestRepository
   include Lotus::Repository
 
   def self.find_by_article(article)
-    query do
-      where(article_id: article.id)
-    end.all
+    requests = self.all
+    requests.delete_if do |request|
+      request.article.id != article.id
+    end
+    requests
   end
 end
