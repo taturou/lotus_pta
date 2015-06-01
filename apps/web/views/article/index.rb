@@ -1,5 +1,3 @@
-require 'digest/md5'
-
 module Web::Views::Article
   class Index
     include Web::View
@@ -19,16 +17,11 @@ module Web::Views::Article
   class Link
     include Web::View
 
-    def hash
-      key = "#{article.id}/#{user.id}/#{Time.now}"
-      Digest::MD5.new.update(key).to_s
-    end
-
     def url
       uri = URI.parse(params.env['REQUEST_URI'])
       root = "#{uri.scheme}://#{uri.host}"
       root += ":#{uri.port}" unless uri.port == 80
-      "#{root}/news/#{hash}"
+      "#{root}/news/#{spectator.md5}"
     end
   end
 end

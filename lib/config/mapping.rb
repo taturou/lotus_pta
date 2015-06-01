@@ -28,3 +28,14 @@ collection :requests do
   attribute :user_id,         Integer
   attribute :requested_at,    DateTime
 end
+
+collection :spectators do
+  entity     Spectator
+  repository SpectatorRepository
+
+  attribute :id,            Integer
+  attribute :article_id,    Integer
+  attribute :user_id,       Integer
+  attribute :created_at,    DateTime
+  attribute :md5,           String
+end

@@ -25,11 +25,15 @@ module Web::Controllers::Article
   class Link
     include Web::Action
 
-    expose :article, :user
+    expose :article, :user, :spectator
 
     def call(params)
       @article = ArticleRepository.find(params[:id])
       @user = UserRepository.find(params[:user_id])
+      @spectator = Spectator.new
+      @spectator.article = @article
+      @spectator.user = @user
+      SpectatorRepository.persist(@spectator)
     end
   end
 end
