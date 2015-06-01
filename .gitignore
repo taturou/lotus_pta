@@ -1,4 +1,3 @@
 /.bundle/
-/Gemfile.lock
 /db/pta_development.sqlite3
 /db/pta_test.sqlite3
