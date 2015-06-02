@@ -4,14 +4,14 @@
 <p>記事番号: <%= article.id %></p>
 <p>タイトル: <%= article.title %></p>
 <p>内容: <%= article.content %></p>
-<p>作成者: <%= article.user.name %></p>
+<p>作成者: <%= article.user.nickname %></p>
 <p>作成日: <%= article.created_at %></p>
 
 <hr>
 <h1>既読情報</h1>
 <% users.each do |user| %>
 <p>
-  <%= user.name %>
+  <%= user.nickname %>
   :
   <% if already_read?(user) %>
     既読
@@ -25,7 +25,7 @@
 <h1>リンクを作成</h1>
 <% users.each do |user| %>
 <p>
-<a href="<%= article.id %>/link/<%= user.id %>"><%= user.name %></a>
+<a href="<%= article.id %>/link/<%= user.id %>"><%= user.nickname %></a>
 <p>
 <% end %>
 
@@ -35,7 +35,7 @@
 <p>
   <%= request.requested_at %>
   <br>
-  <%= request.user.name %>
+  <%= request.user.nickname %>
   ,
   <%= request.http_client_ip %>
   ,

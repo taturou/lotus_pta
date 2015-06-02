@@ -2,8 +2,17 @@ collection :users do
   entity     User
   repository UserRepository
 
-  attribute :id,   Integer
-  attribute :name, String
+  attribute :id,                Integer
+  attribute :nickname,          String
+  attribute :first_name,        String
+  attribute :first_name_ruby,   String
+  attribute :last_name,         String
+  attribute :last_name_ruby,    String
+  attribute :phone,             String
+  attribute :email,             String
+  attribute :is_child,          Integer
+  attribute :father_user_id,    Integer
+  attribute :mother_user_id,    Integer
 end
 
 collection :articles do

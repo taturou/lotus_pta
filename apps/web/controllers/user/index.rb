@@ -2,10 +2,10 @@ module Web::Controllers::User
   class Index
     include Web::Action
 
-    expose :users
+    expose :children
 
     def call(params)
-      @users = UserRepository.all
+      @children = UserRepository.children
     end
   end
 
@@ -15,13 +15,7 @@ module Web::Controllers::User
     expose :user, :requests
 
     def call(params)
-      if params[:id]
-        @user = UserRepository.find(params[:id])
-      elsif params[:name]
-        @user = UserRepository.find_by_name(params[:name])
-      else
-        @user = nil
-      end
+      @user = UserRepository.find(params[:id])
       halt 404 unless @user
 
       @requests = RequestRepository.array_by_user(@user).desc(:id).limit(5).all

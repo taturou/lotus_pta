@@ -19,7 +19,7 @@ module Web::Controllers::Article
       halt 404 unless @article
 
       @requests = RequestRepository.array_by_article(@article).all
-      @users = UserRepository.all
+      @users = UserRepository.parents
       @users.delete(@article.user)
     end
   end
