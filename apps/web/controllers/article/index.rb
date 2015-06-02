@@ -18,7 +18,7 @@ module Web::Controllers::Article
       @article = ArticleRepository.find(params[:id])
       halt 404 unless @article
 
-      @requests = RequestRepository.find_by_article(@article)
+      @requests = RequestRepository.array_by_article(@article).all
       @users = UserRepository.all
       @users.delete(@article.user)
     end

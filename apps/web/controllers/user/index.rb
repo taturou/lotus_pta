@@ -12,7 +12,7 @@ module Web::Controllers::User
   class Show
     include Web::Action
 
-    expose :user
+    expose :user, :requests
 
     def call(params)
       if params[:id]
@@ -23,6 +23,8 @@ module Web::Controllers::User
         @user = nil
       end
       halt 404 unless @user
+
+      @requests = RequestRepository.array_by_user(@user).desc(:id).limit(5).all
     end
   end
 end

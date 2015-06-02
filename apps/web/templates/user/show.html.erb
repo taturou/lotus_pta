@@ -1,4 +1,22 @@
 <h1>user#show</h1>
+
+<h1>ユーザ情報</h1>
 <p>
   #<%= user.id %>, <%= user.name %>
 </p>
+
+<hr>
+<h1>アクセスログ</h1>
+<% requests.each do |request| %>
+<p>
+  <%= request.requested_at %>
+  <br>
+  <%= request.spectator.article.title %>
+  <br>
+  <%= request.http_client_ip %>
+  ,
+  <%= request.http_user_agent %>
+  <br>
+  <%= request.spectator.md5 %>
+</p>
+<% end %>
