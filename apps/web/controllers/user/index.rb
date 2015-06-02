@@ -22,6 +22,7 @@ module Web::Controllers::User
       else
         @user = nil
       end
+      halt 404 unless @user
     end
   end
 end

@@ -16,6 +16,8 @@ module Web::Controllers::Article
 
     def call(params)
       @article = ArticleRepository.find(params[:id])
+      halt 404 unless @article
+
       @requests = RequestRepository.find_by_article(@article)
       @users = UserRepository.all
       @users.delete(@article.user)
@@ -29,6 +31,8 @@ module Web::Controllers::Article
 
     def call(params)
       @article = ArticleRepository.find(params[:id])
+      halt 404 unless @article
+
       @user = UserRepository.find(params[:user_id])
       @spectator = Spectator.new
       @spectator.article = @article

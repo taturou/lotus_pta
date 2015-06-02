@@ -16,6 +16,8 @@ module News::Controllers::Home
 
     def call(params)
       spectator = SpectatorRepository.find_by_md5(params['md5'])
+      halt 404 unless spectator
+
       @article = spectator.article
       @user = spectator.user
       save_request(params, spectator)
