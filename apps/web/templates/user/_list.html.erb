@@ -9,7 +9,11 @@
   </td>
   <td>
     <ruby>
-      <rb><%= child.first_name %></rb>
+      <rb>
+        <a href='<%= child.id %>'>
+          <%= child.first_name %>
+        </a>
+      </rb>
       <rp>（</rp>
       <rt><%= child.first_name_ruby %></rt>
       <rp>）</rp>
@@ -17,7 +21,11 @@
   </td>
   <td>
     <ruby>
-      <rb><%= mother.first_name %></rb>
+      <rb>
+        <a href='<%= mother.id %>'>
+          <%= mother.first_name %>
+        </a>
+      </rb>
       <rp>（</rp>
       <rt><%= mother.first_name_ruby %></rt>
       <rp>）</rp>
