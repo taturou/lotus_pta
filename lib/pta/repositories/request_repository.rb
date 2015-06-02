@@ -4,10 +4,8 @@ class RequestRepository
   include Lotus::Repository
 
   def self.find_by_article(article)
-    requests = self.all
-    requests.delete_if do |request|
-      request.article.id != article.id
-    end
-    requests
+    query do
+      where(spectator_id: SpectatorRepository.id_array_by_article(article))
+    end.all
   end
 end
