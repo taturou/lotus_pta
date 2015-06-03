@@ -1,6 +1,17 @@
 <div class="mxn1 mb1 h5">
-  <a href="/user/" class="button button-narrow button-transparent navy">名簿</a> /
-  <span class="button button-narrow button-transparent gray"><%= user.last_name %><%= user.first_name %></span>
+  <a href="/" class="button button-narrow button-transparent blue">
+    <i class="fa fa-home"></i>
+  </a>
+  /
+  <a href="/user/" class="button button-narrow button-transparent blue">
+    <i class="fa fa-list-alt"></i>
+    名簿
+  </a>
+  /
+  <span class="button button-narrow button-transparent gray">
+    <i class="fa fa-user"></i>
+    <%= user.last_name %><%= user.first_name %>
+  </span>
 </div>
 
 <div class="flex">

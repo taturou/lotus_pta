@@ -1,3 +1,14 @@
+<div class="mxn1 mb1 h5">
+  <a href="/" class="button button-narrow button-transparent blue">
+    <i class="fa fa-home"></i>
+  </a>
+  /
+  <span class="button button-narrow button-transparent gray">
+    <i class="fa fa-folder-open-o"></i>
+    連絡
+  </span>
+</div>
+
 <% articles.each do |article| %>
   <p>
   <a href='<%= article.id %>'><%= article.created_at.strftime("%m/%d") %>, <%= article.title %></a>
