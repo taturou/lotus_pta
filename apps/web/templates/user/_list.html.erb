@@ -1,25 +1,18 @@
 <tr>
-  <td>
-    <ruby>
-      <rb><%= child.last_name %></rb>
-      <rp>（</rp>
-      <rt><%= child.last_name_ruby %></rt>
-      <rp>）</rp>
-    </ruby>
-  </td>
-  <td>
+  <td class="center">
     <ruby>
       <rb>
-        <a href='<%= child.id %>'>
-          <%= child.first_name %>
+        <a href='<%= mother.id %>'>
+          <%= mother.last_name %>
         </a>
       </rb>
       <rp>（</rp>
-      <rt><%= child.first_name_ruby %></rt>
+      <rt>
+        <%= mother.last_name_ruby %>
+      </rt>
       <rp>）</rp>
     </ruby>
-  </td>
-  <td>
+
     <ruby>
       <rb>
         <a href='<%= mother.id %>'>
@@ -27,14 +20,22 @@
         </a>
       </rb>
       <rp>（</rp>
-      <rt><%= mother.first_name_ruby %></rt>
+      <rt>
+        <%= mother.first_name_ruby %>
+      </rt>
       <rp>）</rp>
     </ruby>
   </td>
-  <td>
-    <%= mother.phone %>
-  </td>
-  <td>
-    <%= mother.email %>
+  <td class="center">
+    <ruby>
+      <rb>
+        <%= child.first_name %>
+      </rb>
+      <rp>（</rp>
+      <rt>
+        <%= child.first_name_ruby %>
+      </rt>
+      <rp>）</rp>
+    </ruby>
   </td>
 </tr>

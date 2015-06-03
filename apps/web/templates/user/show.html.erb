@@ -1,20 +1,115 @@
-<h3>ユーザ情報</h3>
-<p>
-  #<%= user.id %>, <%= user.nickname %>
-</p>
+<div class="flex">
+  <div class="m0 gray">
+    氏名
+  </div>
+</div>
+<div class="flex h3 mb1">
+  <div class="flex-auto border rounded p1">
+    <ruby>
+      <rb>
+        <%= user.last_name %>
+      </rb>
+      <rp>（</rp>
+      <rt>
+        <%= user.last_name_ruby %>
+      </rt>
+      <rp>）</rp>
+    </ruby>
+
+    <ruby>
+      <rb>
+        <%= user.first_name %>
+      </rb>
+      <rp>（</rp>
+      <rt>
+        <%= user.first_name_ruby %>
+      </rt>
+      <rp>）</rp>
+    </ruby>
+  </div>
+</div>
+
+<div class="flex">
+  <div class="m0 gray">
+    子供
+  </div>
+</div>
+<div class="flex rounded h3 mb1">
+  <% user.children.each do |child| %>
+    <div class="flex-auto border p1">
+      <ruby>
+        <rb>
+          <%= child.last_name %>
+        </rb>
+        <rp>（</rp>
+        <rt>
+          <%= child.last_name_ruby %>
+        </rt>
+        <rp>）</rp>
+      </ruby>
+
+      <ruby>
+        <rb>
+          <%= child.first_name %>
+        </rb>
+        <rp>（</rp>
+        <rt>
+          <%= child.first_name_ruby %>
+        </rt>
+        <rp>）</rp>
+      </ruby>
+    </div>
+  <% end %>
+</div>
+
+<div class="flex">
+  <div class="m0 gray">
+    電話番号
+  </div>
+</div>
+<div class="flex h3 mb1">
+  <div class="flex-auto border rounded p1">
+    <%= user.phone %>
+  </div>
+</div>
+
+<div class="flex">
+  <div class="m0 gray">
+    メールアドレス
+  </div>
+</div>
+<div class="flex h3 mb1">
+  <div class="flex-auto border rounded p1">
+    <%= user.email %>
+  </div>
+</div>
 
 <hr>
-<h3>アクセスログ</h3>
-<% requests.each do |request| %>
-<p>
-  <%= request.requested_at %>
-  <br>
-  <%= request.spectator.article.title %>
-  <br>
-  <%= request.http_client_ip %>
-  ,
-  <%= request.http_user_agent %>
-  <br>
-  <%= request.spectator.md5 %>
-</p>
-<% end %>
+
+<h4>アクセスログ</h4>
+<div class="overflow-scroll h5">
+  <table class="table-light overflow-hidden rounded border">
+    <thead class="bg-darken-1">
+      <tr>
+        <th class="center">
+          日付
+        </th>
+        <th class="center">
+          連絡タイトル
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% requests.each do |request| %>
+        <tr>
+          <td class="center">
+            <%= request.requested_at.strftime("%m/%d %H:%M") %>
+          </td>
+          <td class="center">
+            <%= request.spectator.article.title %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

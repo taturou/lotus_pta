@@ -8,14 +8,27 @@
     <title>Lotus-PTA</title>
   </head>
   <body>
-    <header class="p2 gray bg-navy flex">
-      <h1 class="h2 m0">
-        <a href="/" class="gray"><i class="fa fa-home"></i></a>
-        Lotus-PTA
-      </h1>
+    <header>
+      <div class="p2 gray bg-navy clearfix h2">
+        <div class="left">
+          <a href="/" class="gray">
+            <i class="fa fa-reorder"></i>
+          </a>
+        </div>
+        <div class="right">
+          <i class="fa fa-gear"></i>
+        </div>
+        <div class="overflow-hidden center">
+          あいうえお組
+        </div>
+      </div>
     </header>
     <main class="flex-auto p2">
       <%= yield %>
     </main>
+    <footer class="p2 gray flex flex-center">
+      <div class="flex-auto"></div>
+      <div>Created by taturou@gmail.com</div>
+    </footer>
   </body>
 </html>
