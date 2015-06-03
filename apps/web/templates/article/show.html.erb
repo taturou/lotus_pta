@@ -1,6 +1,4 @@
-<h1>article#show</h1>
-
-<h1>記事</h1>
+<h3>記事</h3>
 <p>記事番号: <%= article.id %></p>
 <p>タイトル: <%= article.title %></p>
 <p>内容: <%= article.content %></p>
@@ -8,7 +6,7 @@
 <p>作成日: <%= article.created_at %></p>
 
 <hr>
-<h1>既読情報</h1>
+<h3>既読情報</h3>
 <% users.each do |user| %>
 <p>
   <%= user.nickname %>
@@ -22,7 +20,7 @@
 <% end %>
 
 <hr>
-<h1>リンクを作成</h1>
+<h3>リンクを作成</h3>
 <% users.each do |user| %>
 <p>
 <a href="<%= article.id %>/link/<%= user.id %>"><%= user.nickname %></a>
@@ -30,7 +28,7 @@
 <% end %>
 
 <hr>
-<h1>アクセスログ</h1>
+<h3>アクセスログ</h3>
 <% requests.each do |request| %>
 <p>
   <%= request.requested_at %>

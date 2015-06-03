@@ -4,9 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="/stylesheets/basscss/v6.1.6/css/basscss.min.css" />
-    <title>Web</title>
+    <title>Lotus-PTA</title>
   </head>
   <body>
-    <%= yield %>
+    <header class="p2 gray bg-navy flex">
+      <h1 class="h2 m0">
+        <a href="/"><i class="fa fa-home"></i></a>
+        header
+      </h1>
+    </header>
+    <main class="flex-auto p2">
+      <%= yield %>
+    </main>
   </body>
 </html>

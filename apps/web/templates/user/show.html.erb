@@ -1,12 +1,10 @@
-<h1>user#show</h1>
-
-<h1>ユーザ情報</h1>
+<h3>ユーザ情報</h3>
 <p>
   #<%= user.id %>, <%= user.nickname %>
 </p>
 
 <hr>
-<h1>アクセスログ</h1>
+<h3>アクセスログ</h3>
 <% requests.each do |request| %>
 <p>
   <%= request.requested_at %>

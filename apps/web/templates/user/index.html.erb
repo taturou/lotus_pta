@@ -1,16 +1,18 @@
-<h1>user#index</h1>
-
 <div class="overflow-scroll">
-    <table class="table-light">
-        <tr>
-            <th>苗字</th>
-            <th>名前（子供）</th>
-            <th>名前（母親）</th>
-            <th>電話番号</th>
-            <th>e-mail</th>
-        </tr>
-        <% children.each do |child| %>
-            <%= render partial: 'user/list', locals: {child: child, mother: child.mother} %>
-        <% end %>
-    </table>
+  <table class="table-light">
+    <thead class="bg-darken-1">
+      <tr>
+        <th>苗字</th>
+        <th>名前（子供）</th>
+        <th>名前（母親）</th>
+        <th>電話番号</th>
+        <th>e-mail</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% children.each do |child| %>
+        <%= render partial: 'user/list', locals: {child: child, mother: child.mother} %>
+      <% end %>
+    </tbody>
+  </table>
 </div>
