@@ -15,15 +15,8 @@
     既読
   <% else %>
     未読
+    <a href="<%= article.id %>/link/<%= user.id %>">リンクを作成</a>
   <% end %>
-<p>
-<% end %>
-
-<hr>
-<h3>リンクを作成</h3>
-<% users.each do |user| %>
-<p>
-<a href="<%= article.id %>/link/<%= user.id %>"><%= user.nickname %></a>
 <p>
 <% end %>
 

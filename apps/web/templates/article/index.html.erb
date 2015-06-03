@@ -1,5 +1,5 @@
 <% articles.each do |article| %>
   <p>
-  <a href='<%= article.id %>'><%= article.title %></a>
+  <a href='<%= article.id %>'><%= article.created_at.strftime("%m/%d") %>, <%= article.title %></a>
   </p>
 <% end %>
