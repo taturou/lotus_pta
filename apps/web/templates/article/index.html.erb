@@ -4,19 +4,29 @@
   </a>
   /
   <span class="button button-narrow button-transparent gray">
-    <i class="fa fa-folder-open-o"></i>
+    <i class="fa fa-book"></i>
   </span>
 </div>
 
 <% articles.reverse.each do |article| %>
   <div class="flex">
-    <div class="m0 gray">
+    <div class="flex-auto m0 gray">
       <%= article.created_at.strftime("%Y/%m/%d %H:%M") %>
+    </div>
+    <div class="right m0 gray">
+      <i class="fa fa-check-square-o"></i>
+      <!--@@@ <i class="fa fa-square-o"></i> -->
     </div>
   </div>
   <div class="flex h4 mb1">
+    <a href='<%= article.id %>' class="button button-outline button-big rounded blue flex-auto">
+      <%= article.title %>
+    </a>
+  </div>
+  <!--
+  <div class="flex h4 mb1">
     <div class="flex-auto border rounded p1">
-      <a href='<%= article.id %>'><%= article.title %></a>
     </div>
   </div>
+  -->
 <% end %>
