@@ -14,40 +14,67 @@
   </span>
 </div>
 
-<h3>記事</h3>
-<p>記事番号: <%= article.id %></p>
-<p>タイトル: <%= article.title %></p>
-<p>内容: <%= article.content %></p>
-<p>作成者: <%= article.user.nickname %></p>
-<p>作成日: <%= article.created_at %></p>
+<div class="flex">
+  <div class="m0 h3">
+    <%= article.title %>
+  </div>
+</div>
+<div class="flex">
+  <div class="m0 flex-auto gray">
+    <%= article.user.nickname %>
+  </div>
+  <div class="m0 right gray">
+    <%= article.created_at.strftime("%Y/%m/%d %H:%M") %>
+  </div>
+</div>
+<div class="flex">
+  <div class="flex-auto border rounded p1">
+    <%= article.content %>
+  </div>
+</div>
 
 <hr>
-<h3>既読情報</h3>
-<% users.each do |user| %>
-<p>
-  <%= user.nickname %>
-  :
-  <% if already_read?(user) %>
-    既読
-  <% else %>
-    未読
-    <a href="<%= article.id %>/link/<%= user.id %>">リンクを作成</a>
-  <% end %>
-<p>
-<% end %>
 
-<hr>
-<h3>アクセスログ</h3>
-<% requests.each do |request| %>
-<p>
-  <%= request.requested_at %>
-  <br>
-  <%= request.user.nickname %>
-  ,
-  <%= request.http_client_ip %>
-  ,
-  <%= request.http_user_agent %>
-  <br>
-  <%= request.spectator.md5 %>
-</p>
-<% end %>
+<p class="h4">既読情報</p>
+<div class="overflow-scroll h5">
+  <table class="table-light overflow-hidden rounded border">
+    <thead class="bg-darken-1">
+      <tr>
+        <th class="center">
+          名前
+        </th>
+        <th class="center">
+          既読
+        </th>
+        <th class="center">
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% users.each do |user| %>
+        <tr>
+          <th>
+            <a href="/user/<%= user.id %>">
+              <%= user.nickname %>
+            </a>
+          </th>
+          <th class="center">
+            <% if already_read?(user) %>
+              <i class="fa fa-check-square-o"></i>
+            <% else %>
+              <i class="fa fa-square-o"></i>
+            <% end %>
+          <th class="center">
+            <% if already_read?(user) %>
+              <%= access_log(user)[0].requested_at.strftime("%m/%d %H:%M") %>
+            <% else %>
+              <a href="<%= article.id %>/link/<%= user.id %>">
+                <i class="fa fa-share"></i>
+              </a>
+            <% end %>
+          </th>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

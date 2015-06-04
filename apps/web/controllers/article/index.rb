@@ -12,13 +12,12 @@ module Web::Controllers::Article
   class Show
     include Web::Action
 
-    expose :article, :requests, :users
+    expose :article, :users
 
     def call(params)
       @article = ArticleRepository.find(params[:id])
       halt 404 unless @article
 
-      @requests = RequestRepository.array_by_article(@article).all
       @users = UserRepository.parents
       @users.delete(@article.user)
     end

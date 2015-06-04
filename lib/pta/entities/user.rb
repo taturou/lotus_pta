@@ -37,4 +37,13 @@ class User
   def mother
     @mother ||= UserRepository.find(mother_user_id)
   end
+
+  def access_log(desc = true, limit = 0)
+    return @access_log if @access_log
+
+    query = RequestRepository.array_by_user(self)
+    query = query.desc(:id) if desc
+    query = query.limit(limit) if limit > 0
+    query.all
+  end
 end

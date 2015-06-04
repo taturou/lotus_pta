@@ -6,11 +6,19 @@ module Web::Views::Article
   class Show
     include Web::View
 
-    def already_read?(user)
-      index = requests.index do |request|
-        request.user.id == user.id
+    def access_log(user)
+      def user.access_log_as_article(article)
+        @article_log = [] unless @article_log
+        @article_log[article.id] = self.access_log
+        @article_log[article.id].delete_if do |request|
+          request.article.id != article.id
+        end
       end
-      index != nil
+      user.access_log_as_article(article)
+    end
+
+    def already_read?(user)
+      access_log(user).length > 0
     end
   end
 

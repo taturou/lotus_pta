@@ -12,13 +12,11 @@ module Web::Controllers::User
   class Show
     include Web::Action
 
-    expose :user, :requests
+    expose :user
 
     def call(params)
       @user = UserRepository.find(params[:id])
       halt 404 unless @user
-
-      @requests = RequestRepository.array_by_user(@user).desc(:id).limit(5).all
     end
   end
 end

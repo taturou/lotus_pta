@@ -102,7 +102,7 @@
 
 <hr>
 
-<h4>アクセスログ</h4>
+<p class="h4">アクセスログ</p>
 <div class="overflow-scroll h5">
   <table class="table-light overflow-hidden rounded border">
     <thead class="bg-darken-1">
@@ -116,7 +116,7 @@
       </tr>
     </thead>
     <tbody>
-      <% if requests.length == 0 %>
+      <% if user.access_log.length == 0 %>
         <tr>
           <td class="center">
             なし
@@ -125,13 +125,15 @@
           </td>
         </tr>
       <% else %>
-        <% requests.each do |request| %>
+        <% user.access_log.each do |request| %>
           <tr>
             <td class="center">
               <%= request.requested_at.strftime("%m/%d %H:%M") %>
             </td>
             <td class="center">
-              <%= request.spectator.article.title %>
+              <a href='/article/<%= request.spectator.article.id %>'>
+                <%= request.spectator.article.title %>
+              </a>
             </td>
           </tr>
         <% end %>

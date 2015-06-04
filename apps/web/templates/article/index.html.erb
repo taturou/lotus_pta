@@ -9,8 +9,15 @@
   </span>
 </div>
 
-<% articles.each do |article| %>
-  <p>
-  <a href='<%= article.id %>'><%= article.created_at.strftime("%m/%d") %>, <%= article.title %></a>
-  </p>
+<% articles.reverse.each do |article| %>
+  <div class="flex">
+    <div class="m0 gray">
+      <%= article.created_at.strftime("%Y/%m/%d %H:%M") %>
+    </div>
+  </div>
+  <div class="flex h4 mb1">
+    <div class="flex-auto border rounded p1">
+      <a href='<%= article.id %>'><%= article.title %></a>
+    </div>
+  </div>
 <% end %>
