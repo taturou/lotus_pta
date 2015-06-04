@@ -1,8 +1,32 @@
+<div class="mxn1 mb1 h5">
+  <a href="/" class="button button-narrow button-transparent blue">
+    <i class="fa fa-home"></i>
+  </a>
+  /
+  <a href="/article/" class="button button-narrow button-transparent blue">
+    <i class="fa fa-folder-open-o"></i>
+  </a>
+  /
+  <a href="/article/<%= article.id %>" class="button button-narrow button-transparent blue">
+    <i class="fa fa-file-text-o"></i>
+  </a>
+  /
+  <span class="button button-narrow button-transparent gray">
+    <i class="fa fa-share"></i>
+  </span>
+</div>
+
 <p>
-このURLをコピペして、メールで <%= user.nickname %> さんに送ってください。
-<%= user.nickname %> さんが開くと「既読」状態となります。
+以下の文章をコピペして、<%= user.nickname %> さんにメールしてください。
+URL を開くと「既読」状態となります。
 </p>
 <p>
 ※ あなたは開かないでください。
 </p>
-<p><a href='<%= url %>'><%= url %></p>
+
+<div class="overflow-scroll border rounded">
+  <p><%= article.user.last_name %> です。</p>
+  <p>連絡網が回ってきたので、確認をおねがいします。</p>
+  <p>以下の URL を開いて、内容を確認したら [確認] ボタンを押してください。</p>
+  <p><a href='<%= url %>'><%= url %></p>
+</div>
