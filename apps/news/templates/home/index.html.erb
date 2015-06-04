@@ -1,10 +1,16 @@
-<h1>home#index</h1>
-
 <p><%= user.nickname %> さん、こんにちは。</p>
+<p>連絡網が回ってきました。確認したらボタンを押してください。</p>
 
-<h1>記事</h1>
-<p>記事番号: <%= article.id %></p>
-<p>タイトル: <%= article.title %></p>
-<p>内容: <%= article.content %></p>
-<p>作成者: <%= article.user.nickname %></p>
-<p>作成日: <%= article.created_at %></p>
+<hr>
+
+<h3><%= article.title %></p></h3>
+<p>発信元: <%= article.user.last_name %> <%= article.user.first_name %></p>
+<p>発信日: <%= article.created_at.strftime("%Y/%m/%d %H:%M") %></p>
+<p>内容:<p>
+<p><%= article.content %></p>
+
+<hr>
+
+<form>
+  <input type="submit" value="確認しました">
+</form>
