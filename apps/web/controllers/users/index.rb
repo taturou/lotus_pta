@@ -1,4 +1,4 @@
-module Web::Controllers::User
+module Web::Controllers::Users
   class Index
     include Web::Action
 

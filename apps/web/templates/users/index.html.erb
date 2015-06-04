@@ -22,7 +22,7 @@
     </thead>
     <tbody>
       <% children.each do |child| %>
-        <%= render partial: 'user/list', locals: {child: child, mother: child.mother} %>
+        <%= render partial: '/users/list', locals: {child: child, mother: child.mother} %>
       <% end %>
     </tbody>
   </table>

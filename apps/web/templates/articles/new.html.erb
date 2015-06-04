@@ -1,0 +1,34 @@
+<div class="mxn1 mb1 h5">
+  <a href="/" class="button button-narrow button-transparent blue">
+    <i class="fa fa-home"></i>
+  </a>
+  /
+  <span class="button button-narrow button-transparent gray">
+    <i class="fa fa-pencil"></i>
+  </span>
+</div>
+
+<form method="POST" action="/articles">
+  <label class="gray">
+    タイトル
+  </label>
+  <input type="text" name="article[title]" class="block full-width field-light mb1" value="<%= article.title %>">
+
+  <label class="gray">
+    本文
+  </label>
+  <textarea name="article[content]" class="block full-width field-light maxheight">
+    <%= article.content %>
+  </textarea>
+
+  <input type="hidden" name="article[created_user_id]" value="<%= user.id %>">
+
+  <div class="flex">
+    <button type="submit" class="button flex-auto mt1 mr1">
+      作成
+    </button>
+    <button type="reset" class="button bg-gray flex-auto mt1">
+      キャンセル
+    </button>
+  </div>
+</form>

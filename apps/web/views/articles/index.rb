@@ -1,4 +1,4 @@
-module Web::Views::Article
+module Web::Views::Articles
   class Index
     include Web::View
   end
@@ -20,6 +20,10 @@ module Web::Views::Article
     def already_read?(user)
       access_log(user).length > 0
     end
+  end
+
+  class New
+    include Web::View
   end
 
   class Link

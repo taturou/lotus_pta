@@ -1,4 +1,4 @@
-module Web::Controllers::Article
+module Web::Controllers::Articles
   class Index
     include Web::Action
 
@@ -20,6 +20,27 @@ module Web::Controllers::Article
 
       @users = UserRepository.parents
       @users.delete(@article.user)
+    end
+  end
+
+  class New
+    include Web::Action
+
+    expose :user, :article
+
+    def call(params)
+      @user = UserRepository.find(1) #@@@ ログインユーザの user.id
+      @article = Article.new
+    end
+  end
+
+  class Create
+    include Web::Action
+
+    def call(params)
+      article = Article.new(params[:article])
+      article = ArticleRepository.persist(article)
+      redirect_to routes.path(:article, id: article.id)
     end
   end
 

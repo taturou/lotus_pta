@@ -3,7 +3,7 @@
     <i class="fa fa-home"></i>
   </a>
   /
-  <a href="/user/" class="button button-narrow button-transparent blue">
+  <a href="/users" class="button button-narrow button-transparent blue">
     <i class="fa fa-list-alt"></i>
   </a>
   /
@@ -137,7 +137,7 @@
               <%= request.requested_at.strftime("%m/%d %H:%M") %>
             </td>
             <td class="center">
-              <a href='/article/<%= request.spectator.article.id %>'>
+              <a href='/articles/<%= request.spectator.article.id %>'>
                 <%= request.spectator.article.title %>
               </a>
             </td>
