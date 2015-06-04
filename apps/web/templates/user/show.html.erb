@@ -103,21 +103,26 @@
 <hr>
 
 <p class="h4">アクセスログ</p>
-<div class="overflow-scroll h5">
+<div class="overflow-scroll">
   <table class="table-light overflow-hidden rounded border">
-    <thead class="bg-darken-1">
+    <thead class="bg-darken-1 h6">
       <tr>
         <th class="center">
-          日付
+          <i class="fa fa-navicon"></i>
         </th>
         <th class="center">
-          連絡タイトル
+          <i class="fa fa-calendar"></i>
+        </th>
+        <th class="center">
+          <i class="fa fa-file-text-o"></i>
         </th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="h5">
       <% if user.access_log.length == 0 %>
         <tr>
+          <td class="center">
+          </td>
           <td class="center">
             なし
           </td>
@@ -127,6 +132,9 @@
       <% else %>
         <% user.access_log.each do |request| %>
           <tr>
+            <td class="center">
+              <i class="fa fa-folder-open"></i>
+            </td>
             <td class="center">
               <%= request.requested_at.strftime("%m/%d %H:%M") %>
             </td>
@@ -140,4 +148,17 @@
       <% end %>
     </tbody>
   </table>
+</div>
+
+<div class="h6">
+  <div class="flex">
+    <div class="m1">
+      <i class="fa fa-folder-open"></i>
+      : 連絡を読んだ
+    </div>
+    <div class="m1">
+      <i class="fa fa-check-square-o"></i>
+      : 確認ボタンを押した
+    </div>
+  </div>
 </div>

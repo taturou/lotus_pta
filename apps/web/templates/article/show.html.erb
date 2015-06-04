@@ -36,21 +36,22 @@
 <hr>
 
 <p class="h4">既読情報</p>
-<div class="overflow-scroll h5">
+<div class="overflow-scroll">
   <table class="table-light overflow-hidden rounded border">
-    <thead class="bg-darken-1">
+    <thead class="bg-darken-1 h6">
       <tr>
         <th class="center">
-          名前
+          <i class="fa fa-user"></i>
         </th>
         <th class="center">
-          既読
+          <i class="fa fa-navicon"></i>
         </th>
         <th class="center">
+          <i class="fa fa-calendar"></i>
         </th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="h5">
       <% users.each do |user| %>
         <tr>
           <th>
@@ -60,11 +61,16 @@
           </th>
           <th class="center">
             <% if already_read?(user) %>
+              <i class="fa fa-folder-open"></i>
+              /
               <i class="fa fa-check-square-o"></i>
             <% else %>
+              <i class="fa fa-folder"></i>
+              /
               <i class="fa fa-square-o"></i>
             <% end %>
-          <th class="center">
+          </th>
+          <th class="center h6">
             <% if already_read?(user) %>
               <%= access_log(user)[0].requested_at.strftime("%m/%d %H:%M") %>
             <% else %>
@@ -77,4 +83,25 @@
       <% end %>
     </tbody>
   </table>
+</div>
+
+<div class="h6">
+  <div class="flex">
+    <div class="m1">
+      <i class="fa fa-folder"></i>
+      : 未読
+    </div>
+    <div class="m1">
+      <i class="fa fa-folder-open"></i>
+      : 既読
+    </div>
+    <div class="m1">
+      <i class="fa fa-square-o"></i>
+      : 未確認
+    </div>
+    <div class="m1">
+      <i class="fa fa-check-square-o"></i>
+      : 確認済み
+    </div>
+  </div>
 </div>
