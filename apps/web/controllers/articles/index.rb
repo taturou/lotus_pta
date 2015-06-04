@@ -2,10 +2,11 @@ module Web::Controllers::Articles
   class Index
     include Web::Action
 
-    expose :articles
+    expose :articles, :users
 
     def call(params)
       @articles = ArticleRepository.all
+      @users = UserRepository.parents
     end
   end
 

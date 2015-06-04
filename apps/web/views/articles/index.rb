@@ -1,6 +1,17 @@
 module Web::Views::Articles
   class Index
     include Web::View
+
+    def num_readed(article)
+      requests = article.access_log.uniq do |request|
+        request.user.id
+      end
+      "#{requests.length}/#{users.length - 1}"
+    end
+
+    def num_checked(article)
+      num_readed(article)
+    end
   end
 
   class Show
