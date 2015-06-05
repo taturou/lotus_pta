@@ -1,8 +1,8 @@
 require 'lotus/entity'
 
-class Request
+class Log
   include Lotus::Entity
-  attributes :http_client_ip, :http_user_agent, :spectator_id, :requested_at # :id is implicit
+  attributes :http_client_ip, :http_user_agent, :spectator_id, :accessed_at # :id is implicit
 
   def spectator=(spectator)
     self.spectator_id = spectator.id

@@ -84,7 +84,7 @@
           </th>
           <th class="center h6">
             <% if already_read?(user) %>
-              <%= access_log(user)[0].requested_at.strftime("%m/%d %H:%M") %>
+              <%= access_log(user)[0].accessed_at.strftime("%m/%d %H:%M") %>
             <% else %>
               <a href="<%= article.id %>/link/<%= user.id %>">
                 <i class="fa fa-share"></i>

@@ -3,10 +3,10 @@ module Web::Views::Articles
     include Web::View
 
     def num_readed(article)
-      requests = article.access_log.uniq do |request|
-        request.user.id
+      logs = article.access_log.uniq do |log|
+        log.user.id
       end
-      "#{requests.length}/#{users.length - 1}"
+      "#{logs.length}/#{users.length - 1}"
     end
 
     def num_checked(article)
@@ -21,8 +21,8 @@ module Web::Views::Articles
       def user.access_log_as_article(article)
         @article_log = [] unless @article_log
         @article_log[article.id] = self.access_log
-        @article_log[article.id].delete_if do |request|
-          request.article.id != article.id
+        @article_log[article.id].delete_if do |log|
+          log.article.id != article.id
         end
       end
       user.access_log_as_article(article)

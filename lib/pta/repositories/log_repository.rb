@@ -1,6 +1,6 @@
 require 'lotus/repository'
 
-class RequestRepository
+class LogRepository
   include Lotus::Repository
 
   def self.array_by_article(article)

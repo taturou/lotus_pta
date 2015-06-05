@@ -128,17 +128,17 @@
           </td>
         </tr>
       <% else %>
-        <% user.access_log.each do |request| %>
+        <% user.access_log.each do |log| %>
           <tr>
             <td class="center">
               <i class="fa fa-folder-open-o"></i>
             </td>
             <td class="center">
-              <%= request.requested_at.strftime("%m/%d %H:%M") %>
+              <%= log.accessed_at.strftime("%m/%d %H:%M") %>
             </td>
             <td class="center">
-              <a href='/articles/<%= request.spectator.article.id %>'>
-                <%= request.spectator.article.title %>
+              <a href='/articles/<%= log.spectator.article.id %>'>
+                <%= log.spectator.article.title %>
               </a>
             </td>
           </tr>

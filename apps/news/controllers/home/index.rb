@@ -4,14 +4,14 @@ module News::Controllers::Home
 
     expose :article, :user
 
-    def save_request(params, spectator)
+    def save_log(params, spectator)
       http_client_ip = params.env['HTTP_X_FORWARDED_FOR'] || params.env['REMOTE_ADDR']
       http_user_agent = params.env['HTTP_USER_AGENT']
-      request = ::Request.new({http_client_ip: http_client_ip,
+      log = ::Log.new({http_client_ip: http_client_ip,
                                http_user_agent: http_user_agent})
-      request.spectator = spectator
-      request.requested_at = Time.now
-      RequestRepository.persist(request)
+      log.spectator = spectator
+      log.accessed_at = Time.now
+      LogRepository.persist(log)
     end
 
     def call(params)
@@ -20,7 +20,7 @@ module News::Controllers::Home
 
       @article = spectator.article
       @user = spectator.user
-      save_request(params, spectator)
+      save_log(params, spectator)
     end
   end
 end

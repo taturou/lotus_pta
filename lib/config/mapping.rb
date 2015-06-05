@@ -26,15 +26,15 @@ collection :articles do
   attribute :created_at,      DateTime
 end
 
-collection :requests do
-  entity     Request
-  repository RequestRepository
+collection :logs do
+  entity     Log
+  repository LogRepository
 
   attribute :id,              Integer
   attribute :http_client_ip,  String
   attribute :http_user_agent, String
   attribute :spectator_id,    Integer
-  attribute :requested_at,    DateTime
+  attribute :accessed_at,     DateTime
 end
 
 collection :spectators do
