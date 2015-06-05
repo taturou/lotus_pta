@@ -37,6 +37,10 @@ module Web::Views::Articles
     include Web::View
   end
 
+  class Edit
+    include Web::View
+  end
+
   class Link
     include Web::View
 

@@ -27,11 +27,11 @@ module Web::Controllers::Articles
   class New
     include Web::Action
 
-    expose :user, :article
+    expose :article
 
     def call(params)
-      @user = UserRepository.find(1) #@@@ ログインユーザの user.id
       @article = Article.new
+      @article.created_user_id = 1 #@@@ ログインユーザの user.id
     end
   end
 
@@ -45,6 +45,28 @@ module Web::Controllers::Articles
     end
   end
 
+  class Edit
+    include Web::Action
+
+    expose :article
+
+    def call(params)
+      @article = ArticleRepository.find(params[:id])
+      halt 404 unless @article
+    end
+  end
+
+  class Update
+    include Web::Action
+
+    def call(params)
+      article = Article.new(params[:article])
+      article = ArticleRepository.update(article)
+      # use halt # redirect_to routes.path(:article, id: article.id)
+      halt 200
+    end
+  end
+
   class Destroy
     include Web::Action
 
@@ -52,7 +74,8 @@ module Web::Controllers::Articles
       @article = ArticleRepository.find(params[:id])
       halt 404 unless @article
 
-      ArticleRepository.delete(@article);
+      ArticleRepository.delete(@article)
+      # use halt # redirect_to routes.path(:articles)
       halt 200
     end
   end

@@ -3,12 +3,20 @@
     <i class="fa fa-home"></i>
   </a>
   /
+  <a href="/articles" class="button button-narrow button-transparent blue">
+    <i class="fa fa-book"></i>
+  </a>
+  /
+  <a href="/articles/<%= article.id %>" class="button button-narrow button-transparent blue">
+    <i class="fa fa-file-text-o"></i>
+  </a>
+  /
   <span class="button button-narrow button-transparent gray">
-    <i class="fa fa-pencil"></i>
+    <i class="fa fa-edit"></i>
   </span>
 </div>
 
-<form method="POST" action="/articles">
+<form method="POST" action="/articles" redirect_url="/articles/<%= article.id %>">
   <label class="gray">
     タイトル
   </label>
@@ -21,11 +29,12 @@
     <%= article.content %>
   </textarea>
 
+  <input type="hidden" name="article[id]" value="<%= article.id %>">
   <input type="hidden" name="article[created_user_id]" value="<%= article.user.id %>">
 
   <div class="flex">
     <button type="submit" class="button flex-auto mt1 mr1">
-      作成
+      修正
     </button>
     <button type="reset" class="button bg-gray flex-auto mt1">
       キャンセル
