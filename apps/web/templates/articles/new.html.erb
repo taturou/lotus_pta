@@ -12,14 +12,12 @@
   <label class="gray">
     タイトル
   </label>
-  <input type="text" name="article[title]" class="block full-width field-light mb1" value="<%= article.title %>">
+  <input type="text" name="article[title]" class="block full-width field-light mb1" value="">
 
   <label class="gray">
     本文
   </label>
-  <textarea name="article[content]" class="block full-width field-light maxheight">
-    <%= article.content %>
-  </textarea>
+  <textarea name="article[content]" class="block full-width field-light maxheight"></textarea>
 
   <input type="hidden" name="article[created_user_id]" value="<%= article.user.id %>">
 

@@ -25,9 +25,7 @@
   <label class="gray">
     本文
   </label>
-  <textarea name="article[content]" class="block full-width field-light maxheight">
-    <%= article.content %>
-  </textarea>
+  <textarea name="article[content]" class="block full-width field-light maxheight"><%= article.content %></textarea>
 
   <input type="hidden" name="article[id]" value="<%= article.id %>">
   <input type="hidden" name="article[created_user_id]" value="<%= article.user.id %>">

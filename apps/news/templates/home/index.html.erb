@@ -1,16 +1,14 @@
-<p><%= user.nickname %> さん、こんにちは。</p>
-<p>連絡網が回ってきました。確認したらボタンを押してください。</p>
-
+<%= user.nickname %> さん、こんにちは。<br>
+連絡網が回ってきました。確認したらボタンを押してください。<br>
 <hr>
-
-<h3><%= article.title %></p></h3>
-<p>発信元: <%= article.user.last_name %> <%= article.user.first_name %></p>
-<p>発信日: <%= article.created_at.strftime("%Y/%m/%d %H:%M") %></p>
-<p>内容:<p>
-<p><%= article.content %></p>
-
+<%= article.title %><br>
+<br>
+発信元: <%= article.user.last_name %> <%= article.user.first_name %><br>
+発信日: <%= article.created_at.strftime("%Y/%m/%d %H:%M") %><br>
+<br>
+内容:<br>
+<%= article.content.gsub(/\r\n|\r|\n/, "<br/>") %><br>
 <hr>
-
 <form>
   <input type="submit" value="確認しました">
 </form>
