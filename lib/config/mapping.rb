@@ -33,7 +33,9 @@ collection :logs do
   attribute :id,              Integer
   attribute :http_client_ip,  String
   attribute :http_user_agent, String
-  attribute :spectator_id,    Integer
+  attribute :kind,            Integer
+  attribute :user_id,         Integer
+  attribute :article_id,      Integer
   attribute :accessed_at,     DateTime
 end
 

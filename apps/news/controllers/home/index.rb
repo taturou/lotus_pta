@@ -4,12 +4,14 @@ module News::Controllers::Home
 
     expose :article, :user
 
-    def save_log(params, spectator)
+    def save_log(params, user, article)
       http_client_ip = params.env['HTTP_X_FORWARDED_FOR'] || params.env['REMOTE_ADDR']
       http_user_agent = params.env['HTTP_USER_AGENT']
-      log = ::Log.new({http_client_ip: http_client_ip,
-                               http_user_agent: http_user_agent})
-      log.spectator = spectator
+      log = ::Log.new({kind: Log::KIND_OPEN,
+                       http_client_ip: http_client_ip,
+                       http_user_agent: http_user_agent})
+      log.user = user
+      log.article = article
       log.accessed_at = Time.now
       LogRepository.persist(log)
     end
@@ -20,7 +22,7 @@ module News::Controllers::Home
 
       @article = spectator.article
       @user = spectator.user
-      save_log(params, spectator)
+      save_log(params, @user, @article)
     end
   end
 end

@@ -3,33 +3,55 @@ module Web::Views::Articles
     include Web::View
 
     def num_readed(article)
-      logs = article.access_log.uniq do |log|
+      logs = article.logs.uniq do |log|
         log.user.id
+      end
+      logs.delete_if do |log|
+        log.kind != Log::KIND_OPEN
       end
       "#{logs.length}/#{users.length - 1}"
     end
 
     def num_checked(article)
-      num_readed(article)
+      logs = article.logs.uniq do |log|
+        log.user.id
+      end
+      logs.delete_if do |log|
+        log.kind != Log::KIND_SUBMIT
+      end
+      "#{logs.length}/#{users.length - 1}"
     end
   end
 
   class Show
     include Web::View
 
-    def access_log(user)
-      def user.access_log_as_article(article)
-        @article_log = [] unless @article_log
-        @article_log[article.id] = self.access_log
-        @article_log[article.id].delete_if do |log|
-          log.article.id != article.id
-        end
+    def logs_as_article(user, article)
+      logs = article.logs.clone
+      logs.delete_if do |log|
+        log.user.id != user.id
       end
-      user.access_log_as_article(article)
+      logs
     end
 
-    def already_read?(user)
-      access_log(user).length > 0
+    def opened?(user)
+      logs = logs_as_article(user, article)
+      logs.delete_if do |log|
+        log.kind != Log::KIND_OPEN
+      end
+      logs.length > 0
+    end
+
+    def submitted?(user)
+      logs = logs_as_article(user, article)
+      logs.delete_if do |log|
+        log.kind != Log::KIND_SUBMIT
+      end
+      logs.length > 0
+    end
+
+    def accessed_at(user)
+      logs_as_article(user, article).first.accessed_at.strftime("%m/%d %H:%M")
     end
   end
 

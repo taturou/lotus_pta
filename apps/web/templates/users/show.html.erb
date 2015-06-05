@@ -117,7 +117,7 @@
       </tr>
     </thead>
     <tbody class="h5">
-      <% if user.access_log.length == 0 %>
+      <% if user.logs.length == 0 %>
         <tr>
           <td class="center">
           </td>
@@ -128,7 +128,7 @@
           </td>
         </tr>
       <% else %>
-        <% user.access_log.each do |log| %>
+        <% user.logs.each do |log| %>
           <tr>
             <td class="center">
               <i class="fa fa-folder-open-o"></i>
@@ -137,8 +137,8 @@
               <%= log.accessed_at.strftime("%m/%d %H:%M") %>
             </td>
             <td class="center">
-              <a href='/articles/<%= log.spectator.article.id %>'>
-                <%= log.spectator.article.title %>
+              <a href='/articles/<%= log.article.id %>'>
+                <%= log.article.title %>
               </a>
             </td>
           </tr>
