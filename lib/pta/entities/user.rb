@@ -44,6 +44,9 @@ class User
     query = RequestRepository.array_by_user(self)
     query = query.desc(:id) if desc
     query = query.limit(limit) if limit > 0
-    query.all
+    @access_log = query.all
+    @access_log.delete_if do |request|
+      request.article == nil
+    end
   end
 end

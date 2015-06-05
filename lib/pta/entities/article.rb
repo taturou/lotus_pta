@@ -18,6 +18,9 @@ class Article
     query = RequestRepository.array_by_article(self)
     query = query.desc(:id) if desc
     query = query.limit(limit) if limit > 0
-    query.all
+    @access_log = query.all
+    @access_log.delete_if do |request|
+      request.user == nil
+    end
   end
 end

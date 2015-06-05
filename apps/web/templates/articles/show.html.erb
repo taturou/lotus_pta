@@ -25,7 +25,7 @@
     <%= article.created_at.strftime("%Y/%m/%d %H:%M") %>
   </div>
 </div>
-<div class="flex">
+<div class="flex mb1">
   <div class="flex-auto border rounded p1">
     <%= article.content %>
   </div>
@@ -33,14 +33,16 @@
 <div class="flex">
   <div class="m0 flex-auto gray">
   </div>
-  <div class="m0 right gray mr1">
+  <a href="/articles/<%= article.id %>/edit" class="button button-outline right blue mr1">
     <i class="fa fa-edit"></i>
     編集
-  </div>
-  <div class="m0 right gray">
-    <i class="fa fa-trash-o"></i>
-    削除
-  </div>
+  </a>
+  <form method="DELETE" action="/articles/<%= article.id %>" redirect_url="/articles">
+    <button type="submit" class="button button-outline right blue">
+      <i class="fa fa-trash-o"></i>
+      削除
+    </button>
+  </form>
 </div>
 
 <hr>

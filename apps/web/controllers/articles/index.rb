@@ -45,6 +45,18 @@ module Web::Controllers::Articles
     end
   end
 
+  class Destroy
+    include Web::Action
+
+    def call(params)
+      @article = ArticleRepository.find(params[:id])
+      halt 404 unless @article
+
+      ArticleRepository.delete(@article);
+      halt 200
+    end
+  end
+
   class Link
     include Web::Action
 
