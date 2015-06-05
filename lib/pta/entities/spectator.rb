@@ -9,7 +9,7 @@ class Spectator
   def make_md5
     self.created_at = Time.now
 
-    key = "#{self.article_id}/#{self.user_id}/#{self.created_at}"
+    key = "#{self.article_id}/#{self.user_id}"
     self.md5 = Digest::MD5.new.update(key).to_s
   end
   private :make_md5

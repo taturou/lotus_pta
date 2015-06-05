@@ -90,10 +90,7 @@ module Web::Controllers::Articles
       halt 404 unless @article
 
       @user = UserRepository.find(params[:user_id])
-      @spectator = Spectator.new
-      @spectator.article = @article
-      @spectator.user = @user
-      SpectatorRepository.persist(@spectator)
+      @spectator = SpectatorRepository.create(@article, @user)
     end
   end
 end
