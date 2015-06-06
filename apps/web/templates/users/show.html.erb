@@ -131,7 +131,11 @@
         <% user.logs.each do |log| %>
           <tr>
             <td class="center">
-              <i class="fa fa-folder-open-o"></i>
+              <% if log.kind == Log::KIND_OPEN %>
+                <i class="fa fa-folder-open-o"></i>
+              <% else %>
+                <i class="fa fa-check-square-o"></i>
+              <% end %>
             </td>
             <td class="center">
               <%= log.accessed_at.strftime("%m/%d %H:%M") %>

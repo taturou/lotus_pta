@@ -1,0 +1,9 @@
+<%= user.nickname %> さん、確認ありがとうございました。<br>
+<hr>
+<%= article.title %><br>
+<br>
+発信元: <%= article.user.last_name %> <%= article.user.first_name %><br>
+発信日: <%= article.created_at.strftime("%Y/%m/%d %H:%M") %><br>
+<br>
+内容:<br>
+<%= article.content.gsub(/\r\n|\r|\n/, "<br/>") %><br>
