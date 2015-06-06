@@ -3,21 +3,23 @@ module Web::Views::Articles
     include Web::View
 
     def num_readed(article)
-      logs = article.logs.uniq do |log|
-        log.user.id
-      end
+      logs = article.logs.clone
       logs.delete_if do |log|
         log.kind != Log::KIND_OPEN
+      end
+      logs.uniq! do |log|
+        log.user.id
       end
       "#{logs.length}/#{users.length - 1}"
     end
 
     def num_checked(article)
-      logs = article.logs.uniq do |log|
-        log.user.id
-      end
+      logs = article.logs.clone
       logs.delete_if do |log|
         log.kind != Log::KIND_SUBMIT
+      end
+      logs.uniq! do |log|
+        log.user.id
       end
       "#{logs.length}/#{users.length - 1}"
     end
