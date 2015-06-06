@@ -1,5 +1,5 @@
 module News::Controllers::Home
-  class Index
+  class Show
     include News::Action
 
     expose :article, :user

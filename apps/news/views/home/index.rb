@@ -1,5 +1,5 @@
 module News::Views::Home
-  class Index
+  class Show
     include News::View
 
   end
