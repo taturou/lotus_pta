@@ -22,12 +22,12 @@
     <%= article.user.nickname %>
   </div>
   <div class="m0 right gray">
-    <%= article.created_at.strftime("%Y/%m/%d %H:%M") %>
+    <%= article.created_at.ymdHM %>
   </div>
 </div>
 <div class="flex mb1">
   <div class="flex-auto border rounded p1">
-    <%= article.content.gsub(/\r\n|\r|\n/, "<br/>") %>
+    <%= article.content.html %>
   </div>
 </div>
 <div class="flex">

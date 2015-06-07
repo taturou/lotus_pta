@@ -53,7 +53,7 @@ module Web::Views::Articles
     end
 
     def accessed_at(user)
-      logs_as_article(user, article).first.accessed_at.strftime("%m/%d %H:%M")
+      logs_as_article(user, article).first.accessed_at.mdHM
     end
   end
 

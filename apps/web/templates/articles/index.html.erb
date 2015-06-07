@@ -11,7 +11,7 @@
 <% articles.reverse.each do |article| %>
   <div class="flex">
     <div class="flex-auto m0 gray">
-      <%= article.created_at.strftime("%Y/%m/%d %H:%M") %>
+      <%= article.created_at.ymdHM %>
     </div>
     <div class="right m0 gray">
       <i class="fa fa-folder-open-o"></i>
