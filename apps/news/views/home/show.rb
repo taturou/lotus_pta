@@ -16,19 +16,11 @@ module News::Views::Home
     private
 
     def submitted?
-      logs = logs_as_article(user, article)
-      logs.delete_if do |log|
-        log.kind != Log::KIND_SUBMIT
-      end
-      logs.length > 0
-    end
-
-    def logs_as_article(user, article)
       logs = article.logs.clone
       logs.delete_if do |log|
-        log.user.id != user.id
+        (log.user.id != user.id) || (log.kind != Log::KIND_SUBMIT)
       end
-      logs
+      logs.length > 0
     end
   end
 end
