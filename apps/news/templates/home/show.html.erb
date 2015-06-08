@@ -1,18 +1,6 @@
 <%= user.nickname %> さん、こんにちは。<br>
 連絡網が回ってきました。確認したらボタンを押してください。<br>
 <hr>
-<%= article.title %><br>
-<br>
-発信元: <%= article.user.last_name %> <%= article.user.first_name %><br>
-発信日: <%= article.created_at.ymdHM %><br>
-<br>
-内容:<br>
-<%= article.content.html %><br>
+<%= render partial: '/home/article', locals: {article: article} %>
 <hr>
-<% if submitted? %>
-  (確認済み)
-<% else %>
-  <form method="get" action="/news/<%= params['md5'] %>/submit">
-    <input type="submit" value="確認しました">
-  </form>
-<% end %>
+<%= submit_form %>

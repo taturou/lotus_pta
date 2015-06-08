@@ -1,6 +1,19 @@
 module News::Views::Home
   class Show
     include News::View
+    include Lotus::Helpers
+
+    def submit_form
+      if submitted?
+        "(確認済み)"
+      else
+        html.form(action: "/news/#{params['md5']}/submit", method: 'get') do
+          input type: 'submit', value: '確認しました'
+        end
+      end
+    end
+
+    private
 
     def submitted?
       logs = logs_as_article(user, article)
@@ -9,8 +22,6 @@ module News::Views::Home
       end
       logs.length > 0
     end
-
-    private
 
     def logs_as_article(user, article)
       logs = article.logs.clone
