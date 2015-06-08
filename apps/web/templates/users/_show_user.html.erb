@@ -1,0 +1,74 @@
+<div class="flex flex-column">
+  <div class="m0 gray">
+    氏名
+  </div>
+  <div class="h3 mb1 border rounded p1">
+    <ruby>
+      <rb>
+        <%= user.last_name %>
+      </rb>
+      <rp>（</rp>
+      <rt>
+        <%= user.last_name_ruby %>
+      </rt>
+      <rp>）</rp>
+    </ruby>
+
+    <ruby>
+      <rb>
+        <%= user.first_name %>
+      </rb>
+      <rp>（</rp>
+      <rt>
+        <%= user.first_name_ruby %>
+      </rt>
+      <rp>）</rp>
+    </ruby>
+  </div>
+
+  <div class="m0 gray">
+    子供
+  </div>
+  <div class="h3 mb1 rounded">
+    <% user.children.each do |child| %>
+      <div class="border p1">
+        <ruby>
+          <rb>
+            <%= child.last_name %>
+          </rb>
+          <rp>（</rp>
+          <rt>
+            <%= child.last_name_ruby %>
+          </rt>
+          <rp>）</rp>
+        </ruby>
+
+        <ruby>
+          <rb>
+            <%= child.first_name %>
+          </rb>
+          <rp>（</rp>
+          <rt>
+            <%= child.first_name_ruby %>
+          </rt>
+          <rp>）</rp>
+        </ruby>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="m0 gray">
+    電話番号
+  </div>
+
+  <div class="h3 mb1 border rounded p1">
+    <%= user.phone %>
+  </div>
+
+  <div class="m0 gray">
+    メールアドレス
+  </div>
+  <div class="h3 mb1 border rounded p1">
+    <a href="mailto:<%= user.email %>"><%= user.email %></a>
+  </div>
+</div>

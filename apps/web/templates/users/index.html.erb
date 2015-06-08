@@ -14,7 +14,7 @@
     </thead>
     <tbody>
       <% children.each do |child| %>
-        <%= render partial: '/users/list', locals: {child: child, mother: child.mother} %>
+        <%= render partial: '/users/index_user', locals: {child: child, mother: child.mother} %>
       <% end %>
     </tbody>
   </table>

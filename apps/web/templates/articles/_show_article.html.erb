@@ -1,0 +1,34 @@
+<div class="flex flex-column">
+  <div class="h3 mb1">
+    <%= article.title %>
+  </div>
+
+  <div class="flex mb1">
+    <div class="m0 flex-auto gray">
+      <%= article.user.nickname %>
+    </div>
+    <div class="m0 right gray">
+      <%= article.created_at.ymdHM %>
+    </div>
+  </div>
+
+  <div class="border rounded p1 mb1">
+    <%= article.content.html %>
+  </div>
+
+  <div class="flex">
+    <div class="m0 flex-auto gray">
+    </div>
+    <a href='<%= routes.path(:edit_article, id: article.id) %>' class="button button-outline right blue mr1">
+      <i class="fa fa-edit"></i>
+      編集
+    </a>
+    <form method="post" action='<%= routes.path(:article, id: article.id) %>'>
+      <input name="_method" type="hidden" value="delete" />
+      <button type="submit" class="button button-outline right blue">
+        <i class="fa fa-trash-o"></i>
+        削除
+      </button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+<p class="h4">アクセスログ</p>
+<div class="overflow-scroll">
+  <table class="table-light overflow-hidden rounded border">
+    <thead class="bg-darken-1 h6">
+      <tr>
+        <th class="center">
+          <i class="fa fa-navicon"></i>
+        </th>
+        <th class="center">
+          <i class="fa fa-calendar"></i>
+        </th>
+        <th class="center">
+          <i class="fa fa-file-text-o"></i>
+        </th>
+      </tr>
+    </thead>
+    <tbody class="h5">
+      <% if user.logs.length == 0 %>
+        <tr>
+          <td class="center">
+          </td>
+          <td class="center">
+            なし
+          </td>
+          <td class="center">
+          </td>
+        </tr>
+      <% else %>
+        <% user.logs.each do |log| %>
+          <tr>
+            <td class="center">
+              <% if log.kind == Log::KIND_OPEN %>
+                <i class="fa fa-folder-open-o"></i>
+              <% else %>
+                <i class="fa fa-check-square-o"></i>
+              <% end %>
+            </td>
+            <td class="center">
+              <%= log.accessed_at.mdHM %>
+            </td>
+            <td class="center">
+              <a href='<%= routes.path(:article, id: log.article.id) %>'>
+                <%= log.article.title %>
+              </a>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="h6">
+  <div class="flex">
+    <div class="m1">
+      <i class="fa fa-folder-open-o"></i>
+      : 連絡を読んだ
+    </div>
+    <div class="m1">
+      <i class="fa fa-check-square-o"></i>
+      : 確認ボタンを押した
+    </div>
+  </div>
+</div>

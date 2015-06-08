@@ -1,0 +1,54 @@
+<p class="h4">既読情報</p>
+
+<div class="overflow-scroll">
+  <table class="table-light overflow-hidden rounded border">
+    <thead class="bg-darken-1 h6">
+      <tr>
+        <th class="center">
+          <i class="fa fa-user"></i>
+        </th>
+        <th class="center">
+          <i class="fa fa-navicon"></i>
+        </th>
+        <th class="center">
+          <i class="fa fa-calendar"></i>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody class="h5">
+      <% parents.each do |parent| %>
+        <tr>
+          <th>
+            <a href='<%= routes.path(:user, id: parent.id) %>'>
+              <%= parent.nickname %>
+            </a>
+          </th>
+          <th class="center">
+            <%= readed_icon(article, parent) %>
+          </th>
+          <th class="center h6">
+            <%= readed_date(article, parent) %>
+          </th>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="h6">
+  <div class="flex">
+    <div class="m1">
+      <i class="fa fa-folder-o"></i>
+      : 未読
+    </div>
+    <div class="m1">
+      <i class="fa fa-folder-open-o"></i>
+      : 既読
+    </div>
+    <div class="m1">
+      <i class="fa fa-check-square-o"></i>
+      : 確認済み
+    </div>
+  </div>
+</div>
