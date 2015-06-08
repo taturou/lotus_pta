@@ -62,8 +62,7 @@ module Web::Controllers::Articles
     def call(params)
       article = Article.new(params[:article])
       article = ArticleRepository.update(article)
-      # use halt # redirect_to routes.path(:article, id: article.id)
-      halt 200
+      redirect_to routes.path(:article, id: article.id)
     end
   end
 
@@ -75,8 +74,7 @@ module Web::Controllers::Articles
       halt 404 unless @article
 
       ArticleRepository.delete(@article)
-      # use halt # redirect_to routes.path(:articles)
-      halt 200
+      redirect_to routes.path(:articles)
     end
   end
 
