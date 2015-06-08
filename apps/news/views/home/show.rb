@@ -31,8 +31,4 @@ module News::Views::Home
       logs
     end
   end
-
-  class Submit
-    include News::View
-  end
 end
