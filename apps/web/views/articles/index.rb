@@ -2,6 +2,14 @@ module Web::Views::Articles
   class Index
     include Web::View
 
+    def breadcrumbs
+      breadcrumbs_base(
+        [
+          {icon: 'fa-home', url: routes.path(:home)},
+          {icon: 'fa-book'}
+        ])
+    end
+
     def num_readed(article)
       logs = article.logs.clone
       logs.delete_if do |log|
@@ -27,6 +35,15 @@ module Web::Views::Articles
 
   class Show
     include Web::View
+
+    def breadcrumbs
+      breadcrumbs_base(
+        [
+          {icon: 'fa-home', url: routes.path(:home)},
+          {icon: 'fa-book', url: routes.path(:articles)},
+          {icon: 'fa-file-text-o'}
+        ])
+    end
 
     def logs_as_article(user, article)
       logs = article.logs.clone
@@ -59,14 +76,42 @@ module Web::Views::Articles
 
   class New
     include Web::View
+
+    def breadcrumbs
+      breadcrumbs_base(
+        [
+          {icon: 'fa-home', url: routes.path(:home)},
+          {icon: 'fa-pencil'}
+        ])
+    end
   end
 
   class Edit
     include Web::View
+
+    def breadcrumbs
+      breadcrumbs_base(
+        [
+          {icon: 'fa-home', url: routes.path(:home)},
+          {icon: 'fa-book', url: routes.path(:articles)},
+          {icon: 'fa-file-text-o', url: routes.path(:article, id: article.id)},
+          {icon: 'fa-edit'}
+        ])
+    end
   end
 
   class Link
     include Web::View
+
+    def breadcrumbs
+      breadcrumbs_base(
+        [
+          {icon: 'fa-home', url: routes.path(:home)},
+          {icon: 'fa-book', url: routes.path(:articles)},
+          {icon: 'fa-file-text-o', url: routes.path(:article, id: article.id)},
+          {icon: 'fa-share'}
+        ])
+    end
 
     def url
       uri = URI.parse(params.env['REQUEST_URI'])
