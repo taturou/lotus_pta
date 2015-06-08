@@ -129,7 +129,7 @@
               <%= log.accessed_at.mdHM %>
             </td>
             <td class="center">
-              <a href='/articles/<%= log.article.id %>'>
+              <a href='<%= routes.path(:article, id: log.article.id) %>'>
                 <%= log.article.title %>
               </a>
             </td>

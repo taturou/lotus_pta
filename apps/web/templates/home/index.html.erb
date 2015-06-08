@@ -1,30 +1,25 @@
 <%= breadcrumbs %>
 
-<div class="flex">
-  <a href="/articles/new" class="button button-outline button-big h3 mb2 rounded center flex-auto blue">
+<div class="flex flex-column">
+  <a href='<%= routes.path(:new_article) %>' class="button button-outline button-big h3 mb2 rounded center blue">
     <div class="left">
-      <i class="fa fa-pencil"></i>
-      <!-- <i class="fa fa-edit"></i> -->
+      <i class="fa fa-pencil fa-fw"></i>
     </div>
     <div class="flex-auto">
       連絡事項作成
     </div>
   </a>
-</div>
-<div class="flex">
-  <a href="/articles" class="button button-outline button-big h3 mb2 rounded center flex-auto blue">
+  <a href='<%= routes.path(:articles) %>' class="button button-outline button-big h3 mb2 rounded center blue">
     <div class="left">
-      <i class="fa fa-book"></i>
+      <i class="fa fa-book fa-fw"></i>
     </div>
     <div class="flex-auto">
       連絡事項一覧
     </div>
   </a>
-</div>
-<div class="flex">
-  <a href="/users" class="button button-outline button-big h3 mb2 rounded center flex-auto blue">
+  <a href='<%= routes.path(:users) %>' class="button button-outline button-big h3 mb2 rounded center blue">
     <div class="left">
-      <i class="fa fa-list-alt"></i>
+      <i class="fa fa-list-alt fa-fw"></i>
     </div>
     <div class="flex-auto">
       名簿
@@ -36,9 +31,5 @@
 <hr>
 <% params.env.each do |key,val| %>
   <p>params.env['<%= key %>'] = "<%= val %>"</p>
-<% end %>
-
-<% ENV.each do |key,val| %>
-  <p>ENV['<%= key %>'] = "<%= val %>"</p>
 <% end %>
 -->
