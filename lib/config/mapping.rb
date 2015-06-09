@@ -3,11 +3,13 @@ collection :users do
   repository UserRepository
 
   attribute :id,                Integer
-  attribute :nickname,          String
+  attribute :login_name,        String
+  attribute :passwd_hash,       String
   attribute :first_name,        String
   attribute :first_name_ruby,   String
   attribute :last_name,         String
   attribute :last_name_ruby,    String
+  attribute :birthday,          DateTime
   attribute :phone,             String
   attribute :email,             String
   attribute :is_child,          Integer

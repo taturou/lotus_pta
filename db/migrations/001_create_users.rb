@@ -2,11 +2,13 @@ class CreateUsers < Sequel::Migration
   def up
     create_table :users do
       primary_key :id
-      String :nickname
+      String :login_name
+      String :passwd_hash
       String :first_name
       String :first_name_ruby
       String :last_name
       String :last_name_ruby
+      datetime :birthday
       String :phone
       String :email
       Integer :is_child, default: 0

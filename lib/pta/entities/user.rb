@@ -2,7 +2,15 @@ require 'lotus/entity'
 
 class User
   include Lotus::Entity
-  attributes :nickname, :first_name, :first_name_ruby, :last_name, :last_name_ruby, :phone, :email, :is_child, :father_user_id, :mother_user_id # :id is implicit
+  attributes :login_name, :passwd_hash, :first_name, :first_name_ruby, :last_name, :last_name_ruby, :birthday, :phone, :email, :is_child, :father_user_id, :mother_user_id # :id is implicit
+
+  def fullname
+    "#{last_name} #{first_name}"
+  end
+
+  def fullname_ruby
+    "#{last_name_ruby} #{first_name_ruby}"
+  end
 
   def child?
     !!is_child
