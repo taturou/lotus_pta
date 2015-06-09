@@ -11,7 +11,7 @@ module Web::Views::Articles
         ])
     end
 
-    def readed_icon(article, user)
+    def read_icon(article, user)
       if submitted?(article, user)
         html.i(class: 'fa fa-check-square-o'){}
       elsif opened?(article, user)
@@ -21,7 +21,7 @@ module Web::Views::Articles
       end
     end
 
-    def readed_date(article, user)
+    def read_date(article, user)
       unless opened?(article, user)
         html.a(href: routes.path(:link_article, id: article.id, user_id: user.id)) do
           i(class: 'fa fa-share'){}

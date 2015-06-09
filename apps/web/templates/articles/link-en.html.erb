@@ -1,0 +1,18 @@
+<%= breadcrumbs %>
+
+<p>
+Copy and paste the following sentence, and send email to <%= user.nickname %>.
+The status will change to 'read' from 'unread' when he(she) open the url.
+</p>
+<p>
+Notes: Don't open it.
+</p>
+
+<div class="overflow-scroll border rounde p2">
+  <p>Hi.</p>
+  <p></p>
+  <p>Would you please confirm this message.</p>
+  <p><a href='<%= url %>'><%= url %></p>
+  <p></p>
+  <p><%= article.user.last_name %>.</p>
+</div>

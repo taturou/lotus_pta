@@ -1,4 +1,5 @@
-<p class="h4">アクセスログ</p>
+<p class="h4"><%= t('log.access_log') %></p>
+
 <div class="overflow-scroll">
   <table class="table-light overflow-hidden rounded border">
     <thead class="bg-darken-1 h6">
@@ -18,11 +19,13 @@
       <% if user.logs.length == 0 %>
         <tr>
           <td class="center">
+            -
           </td>
           <td class="center">
-            なし
+            -
           </td>
           <td class="center">
+            -
           </td>
         </tr>
       <% else %>
@@ -54,11 +57,13 @@
   <div class="flex">
     <div class="m1">
       <i class="fa fa-folder-open-o"></i>
-      : 連絡を読んだ
+      :
+      <%= t('log.read_article') %>
     </div>
     <div class="m1">
       <i class="fa fa-check-square-o"></i>
-      : 確認ボタンを押した
+      :
+      <%= t('log.confirmed_article') %>
     </div>
   </div>
 </div>

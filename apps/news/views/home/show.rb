@@ -5,10 +5,10 @@ module News::Views::Home
 
     def submit_form
       if submitted?
-        "(確認済み)"
+        "(#{ t('news.confirmded') })"
       else
         html.form(action: "/news/#{params['md5']}/submit", method: 'get') do
-          input type: 'submit', value: '確認しました'
+          input type: 'submit', value: t('news.confirm')
         end
       end
     end

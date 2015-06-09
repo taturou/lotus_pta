@@ -1,0 +1,31 @@
+ja:
+  home:
+    create_article:     '連絡事項作成'
+    list_articles:      '連絡事項一覧'
+    list_users:         '名簿'
+  user:
+    name:               '氏名'
+    child_name:         '子供の氏名'
+    phone_number:       '電話番号'
+    email_address:      'メールアドレス'
+  article:
+    title:              'タイトル'
+    content:            '本文'
+  news:
+    prepared_by:        '作成者'
+    creation_date:      '作成日'
+    content:            '内容'
+    confirm:            '確認しました'
+    confirmded:         '確認済み'
+  log:
+    access_log:         'アクセスログ'
+    read:               '既読'
+    unread:             '未読'
+    confirmed:          '確認済み'
+    read_article:       '連絡を読んだ'
+    confirmed_article:  '確認ボタンを押した'
+  form:
+    create:             '作成'
+    edit:               '編集'
+    delete:             '削除'
+    cancel:             'キャンセル'

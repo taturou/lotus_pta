@@ -21,13 +21,13 @@
     </div>
     <a href='<%= routes.path(:edit_article, id: article.id) %>' class="button button-outline right blue mr1">
       <i class="fa fa-edit"></i>
-      編集
+      <%= t('form.edit') %>
     </a>
     <form method="post" action='<%= routes.path(:article, id: article.id) %>'>
       <input name="_method" type="hidden" value="delete" />
       <button type="submit" class="button button-outline right blue">
         <i class="fa fa-trash-o"></i>
-        削除
+        <%= t('form.delete') %>
       </button>
     </form>
   </div>

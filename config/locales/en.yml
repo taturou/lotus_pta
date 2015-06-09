@@ -1,0 +1,31 @@
+en:
+  home:
+    create_article:     'Create article'
+    list_articles:      'Articles'
+    list_users:         'Users'
+  user:
+    name:               'Name'
+    child_name:         'Child name'
+    phone_number:       'Phone number'
+    email_address:      'e-mail address'
+  article:
+    title:              'Title'
+    content:            'Content'
+  news:
+    prepared_by:        'Prepared by'
+    creation_date:      'Creation date'
+    content:            'Content'
+    confirm:            'Confirm'
+    confirmded:         'Confirmed'
+  log:
+    access_log:         'Access logs'
+    read:               'Read'
+    unread:             'Unread'
+    confirmed:          'Confirmed'
+    read_article:       'Read article'
+    confirmed_article:  'Confirmed article'
+  form:
+    create:             'Create'
+    edit:               'Edit'
+    delete:             'Delete'
+    cancel:             'Cancel'

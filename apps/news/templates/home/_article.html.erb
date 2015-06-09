@@ -1,7 +1,11 @@
 <%= article.title %><br>
 <br>
-発信元: <%= article.user.last_name %> <%= article.user.first_name %><br>
-発信日: <%= article.created_at.ymdHM %><br>
+<%= t('news.prepared_by') %>:
+<%= article.user.last_name %> <%= article.user.first_name %>
 <br>
-内容:<br>
+<%= t('news.creation_date') %>:
+<%= article.created_at.ymdHM %><br>
+<br>
+<%= t('news.content') %>:
+<br>
 <%= article.content.to_html %><br>

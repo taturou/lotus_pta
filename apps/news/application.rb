@@ -191,6 +191,17 @@ module News
       security.content_security_policy "default-src 'none'; script-src 'self'; connect-src 'self'; img-src 'self'; style-src 'self';"
 
       ##
+      # i18n
+      #
+      I18n.enforce_available_locales = false # 未対応言語でも止めない
+      I18n.backend = I18n::Backend::Simple.new
+      I18n.backend.class.send(:include, I18n::Backend::Fallbacks) # ローカル言語に定義がない場合はデフォルト言語を使用する
+      I18n.backend.load_translations(Dir.glob('config/locales/*.yml'))
+      I18n.available_locales = [:ja, :en] # 日本語と英語を使用可能
+      I18n.default_locale = :ja # デフォルトは日本語
+      I18n.locale = :ja # 日本語を使用する
+
+      ##
       # FRAMEWORKS
       #
 

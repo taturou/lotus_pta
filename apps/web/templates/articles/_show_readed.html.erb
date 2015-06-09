@@ -1,4 +1,4 @@
-<p class="h4">既読情報</p>
+<p class="h4"><%= t('log.access_log') %></p>
 
 <div class="overflow-scroll">
   <table class="table-light overflow-hidden rounded border">
@@ -25,10 +25,10 @@
             </a>
           </th>
           <th class="center">
-            <%= readed_icon(article, parent) %>
+            <%= read_icon(article, parent) %>
           </th>
           <th class="center h6">
-            <%= readed_date(article, parent) %>
+            <%= read_date(article, parent) %>
           </th>
         </tr>
       <% end %>
@@ -40,15 +40,18 @@
   <div class="flex">
     <div class="m1">
       <i class="fa fa-folder-o"></i>
-      : 未読
+      :
+      <%= t('log.unread') %>
     </div>
     <div class="m1">
       <i class="fa fa-folder-open-o"></i>
-      : 既読
+      :
+      <%= t('log.read') %>
     </div>
     <div class="m1">
       <i class="fa fa-check-square-o"></i>
-      : 確認済み
+      :
+      <%= t('log.confirmed') %>
     </div>
   </div>
 </div>

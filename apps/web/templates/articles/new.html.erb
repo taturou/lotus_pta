@@ -2,12 +2,12 @@
 
 <form method="post" action='<%= routes.path(:articles) %>'>
   <label class="gray">
-    タイトル
+    <%= t('article.title') %>
   </label>
   <input type="text" name="article[title]" class="block full-width field-light mb1" value="">
 
   <label class="gray">
-    本文
+    <%= t('article.content') %>
   </label>
   <textarea name="article[content]" class="block full-width field-light maxheight"></textarea>
 
@@ -15,10 +15,10 @@
 
   <div class="flex">
     <button type="submit" class="button flex-auto mt1 mr1">
-      作成
+      <%= t('form.create') %>
     </button>
     <button type="reset" class="button bg-gray flex-auto mt1">
-      キャンセル
+      <%= t('form.cancel') %>
     </button>
   </div>
 </form>
