@@ -1,4 +1,5 @@
 require 'lotus/helpers'
+require 'rack/auth/digest/md5'
 require 'i18n'
 
 module Web
@@ -190,6 +191,20 @@ module Web
       #  * https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Using_Content_Security_Policy
       #
       security.content_security_policy "default-src 'self'; script-src 'self'; connect-src 'self'; img-src 'self'; style-src 'self';"
+
+      #
+      # HTTP Digest
+      #
+      class DigestParam
+        def values_at(realm, opaque, passwords_hashed)
+          return [ENV['DIGEST_REALM'], '', true]
+        end
+      end
+
+      middleware.use Rack::Auth::Digest::MD5, DigestParam.new, nil do |username|
+        user = UserRepository.find_by_login_name(username)
+        user.passwd_hash if user
+      end
 
       ##
       # i18n

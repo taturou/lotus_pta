@@ -1,5 +1,5 @@
 require 'rack/auth/digest/md5'
-REALM = "realm"
+DIGEST_REALM="Lotus-PTA"
 
 UserRepository.clear
 
@@ -27,11 +27,11 @@ UserRepository.clear
    {login_name: "y-fujioka",   last_name: "藤岡", first_name: "陽介",   last_name_ruby: "ふじおか", first_name_ruby: "ようすけ"}],
 ].each do |user_attrs|
   mother = User.new(user_attrs[0])
-  mother.passwd_hash = Digest::MD5.new.update('%s:%s:%s' % [mother.login_name, REALM, mother.login_name])
+  mother.passwd_hash = Digest::MD5.new.update('%s:%s:%s' % [mother.login_name, DIGEST_REALM, mother.login_name])
   UserRepository.persist(mother)
 
   child = User.new(user_attrs[1])
-  child.passwd_hash = Digest::MD5.new.update('%s:%s:%s' % [child.login_name, REALM, child.login_name])
+  child.passwd_hash = Digest::MD5.new.update('%s:%s:%s' % [child.login_name, DIGEST_REALM, child.login_name])
   child.child!
   child.mother = UserRepository.find_by_login_name(mother.login_name)
   UserRepository.persist(child)

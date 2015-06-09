@@ -5,8 +5,9 @@ module Web::Controllers::Articles
     expose :article
 
     def call(params)
+      user = UserRepository.find_by_login_name(params.env['REMOTE_USER'])
       @article = Article.new
-      @article.created_user_id = 1 #@@@ ログインユーザの user.id
+      @article.user = user
     end
   end
 end
