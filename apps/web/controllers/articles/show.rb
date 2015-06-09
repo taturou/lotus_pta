@@ -9,7 +9,7 @@ module Web::Controllers::Articles
       halt 404 unless @article
 
       @parents = UserRepository.parents
-      @parents.delete(@article.user)
+      @parents.delete(@article.owner)
     end
   end
 end

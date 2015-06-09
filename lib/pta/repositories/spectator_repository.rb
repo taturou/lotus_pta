@@ -3,10 +3,10 @@ require 'lotus/repository'
 class SpectatorRepository
   include Lotus::Repository
 
-  def self.create(article, user)
+  def self.create(article, reader)
     tmp = Spectator.new
     tmp.article = article
-    tmp.user = user
+    tmp.reader = reader
     spectator = SpectatorRepository.find_by_md5(tmp.md5)
     spectator = SpectatorRepository.persist(tmp) unless spectator
     return spectator

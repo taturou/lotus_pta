@@ -46,15 +46,8 @@ class User
     @mother ||= UserRepository.find(mother_user_id)
   end
 
-  def logs(desc = true, limit = 0)
-    return @logs if @logs
-
-    query = LogRepository.array_by_user(self)
+  def logs_query(desc = true)
+    query = LogRepository.query_by_reader(self)
     query = query.desc(:id) if desc
-    query = query.limit(limit) if limit > 0
-    @logs = query.all
-    @logs.delete_if do |log|
-      log.article == nil
-    end
   end
 end

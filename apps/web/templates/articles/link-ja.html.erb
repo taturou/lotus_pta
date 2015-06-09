@@ -1,7 +1,7 @@
 <%= breadcrumbs %>
 
 <p>
-以下の文章をコピペして、<%= user.fullname %> さんにメールしてください。
+以下の文章をコピペして、<%= reader.fullname %> さんにメールしてください。
 URLを開くと「既読」状態となります。
 </p>
 <p>
@@ -9,7 +9,7 @@ URLを開くと「既読」状態となります。
 </p>
 
 <div class="overflow-scroll border rounde p2">
-  <p><%= article.user.last_name %> です。</p>
+  <p><%= article.owner.last_name %> です。</p>
   <p>連絡網が回ってきたので、確認をおねがいします。</p>
   <p>以下の URL を開いて、内容を確認したら [確認] ボタンを押してください。</p>
   <p><a href='<%= url %>'><%= url %></p>

@@ -17,18 +17,18 @@
     </thead>
 
     <tbody class="h5">
-      <% parents.each do |parent| %>
+      <% parents.each do |reader| %>
         <tr>
           <th>
-            <a href='<%= routes.path(:user, id: parent.id) %>'>
-              <%= parent.fullname %>
+            <a href='<%= routes.path(:user, id: reader.id) %>'>
+              <%= reader.fullname %>
             </a>
           </th>
           <th class="center">
-            <%= read_icon(article, parent) %>
+            <%= read_icon(article, reader) %>
           </th>
           <th class="center h6">
-            <%= read_date(article, parent) %>
+            <%= read_date(article, reader) %>
           </th>
         </tr>
       <% end %>

@@ -54,7 +54,7 @@ end
 窓をあるたな。「猫が教わっない。町はずれ、おまえを眼。弾い。」何ははじめのなかのまたさっきの中がひきたまし。'},
 ].each do |article_attrs|
   article = Article.new(article_attrs)
-  article.user = UserRepository.find(1)
+  article.owner = UserRepository.find(1)
   ArticleRepository.persist(article)
 end
 

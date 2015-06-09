@@ -5,9 +5,9 @@ module Web::Controllers::Articles
     expose :article
 
     def call(params)
-      user = UserRepository.find_by_login_name(params.env['REMOTE_USER'])
+      owner = UserRepository.find_by_login_name(params.env['REMOTE_USER'])
       @article = Article.new
-      @article.user = user
+      @article.owner = owner
     end
   end
 end

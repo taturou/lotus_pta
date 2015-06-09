@@ -11,12 +11,12 @@ module Web::Views::Articles
     end
 
     def num_readed(article)
-      logs = article.logs.clone
+      logs = article.logs_query.all
       logs.delete_if do |log|
         log.kind != Log::KIND_OPEN
       end
       logs.uniq! do |log|
-        log.user.id
+        log.reader.id
       end
       html.span do
         i(class: 'fa fa-folder-open-o'){}
@@ -27,12 +27,12 @@ module Web::Views::Articles
     end
 
     def num_checked(article)
-      logs = article.logs.clone
+      logs = article.logs_query.all
       logs.delete_if do |log|
         log.kind != Log::KIND_SUBMIT
       end
       logs.uniq! do |log|
-        log.user.id
+        log.reader.id
       end
       html.span do
         i(class: 'fa fa-check-square-o'){}

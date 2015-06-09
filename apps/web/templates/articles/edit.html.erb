@@ -14,7 +14,7 @@
   <textarea name="article[content]" class="block full-width field-light maxheight"><%= article.content %></textarea>
 
   <input type="hidden" name="article[id]" value="<%= article.id %>">
-  <input type="hidden" name="article[created_user_id]" value="<%= article.user.id %>">
+  <input type="hidden" name="article[owner_user_id]" value="<%= article.owner.id %>">
 
   <div class="flex">
     <button type="submit" class="button flex-auto mt1 mr1">

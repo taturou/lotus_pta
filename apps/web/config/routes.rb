@@ -7,5 +7,5 @@
 # Please, uncomment the following line to have a working example.
 get '/', to: 'home#index', as: :home
 resources :articles
-get '/articles/:id/link/:user_id', id: /\d+/, user_id: /\d+/, to: 'articles#link', as: :link_article
+get '/articles/:id/link/:reader_user_id', id: /\d+/, reader_user_id: /\d+/, to: 'articles#link', as: :link_article
 resources :users, only: [:index, :show]

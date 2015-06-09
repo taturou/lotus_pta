@@ -4,8 +4,8 @@ class CreateArticles < Sequel::Migration
       primary_key :id
       String :title
       String :content
-      Integer :created_user_id
-      index :created_user_id
+      Integer :owner_user_id
+      index :owner_user_id
       datetime :created_at, default: Time.now
     end
   end

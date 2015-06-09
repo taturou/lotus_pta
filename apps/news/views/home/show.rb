@@ -16,9 +16,9 @@ module News::Views::Home
     private
 
     def submitted?
-      logs = article.logs.clone
+      logs = article.logs_query.all
       logs.delete_if do |log|
-        (log.user.id != user.id) || (log.kind != Log::KIND_SUBMIT)
+        (log.reader.id != reader.id) || (log.kind != Log::KIND_SUBMIT)
       end
       logs.length > 0
     end

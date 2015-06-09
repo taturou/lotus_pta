@@ -5,8 +5,8 @@ class CreateLogs < Sequel::Migration
       String :http_client_ip
       String :http_user_agent
       Integer :kind
-      Integer :user_id
-      index :user_id
+      Integer :reader_user_id
+      index :reader_user_id
       Integer :article_id
       index :article_id
       datetime :accessed_at, default: Time.now

@@ -1,7 +1,7 @@
 <%= article.title %><br>
 <br>
 <%= t('news.prepared_by') %>:
-<%= article.user.last_name %> <%= article.user.first_name %>
+<%= article.owner.last_name %> <%= article.owner.first_name %>
 <br>
 <%= t('news.creation_date') %>:
 <%= article.created_at.ymdHM %><br>

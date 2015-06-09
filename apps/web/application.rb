@@ -201,9 +201,9 @@ module Web
         end
       end
 
-      middleware.use Rack::Auth::Digest::MD5, DigestParam.new, nil do |username|
-        user = UserRepository.find_by_login_name(username)
-        user.passwd_hash if user
+      middleware.use Rack::Auth::Digest::MD5, DigestParam.new, nil do |login_name|
+        login_user = UserRepository.find_by_login_name(login_name)
+        login_user.passwd_hash if login_user
       end
 
       ##
