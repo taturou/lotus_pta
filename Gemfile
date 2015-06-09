@@ -6,6 +6,7 @@ gem 'rake'
 gem 'lotusrb',       '0.3.2'
 gem 'lotus-model',   '~> 0.3'
 
+gem 'i18n'
 
 gem 'sqlite3'
 
