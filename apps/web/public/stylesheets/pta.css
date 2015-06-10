@@ -1,0 +1,28 @@
+/* リンクを長押ししたときのポップアップメニューを抑制する */
+* {
+  -webkit-touch-callout:none;
+}
+
+/* タップしたときのハイライトを抑制する */
+body {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz-tap-highlight-color: rgba(0, 0, 0, 0);
+  tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* ボタンをタップしたときのスタイル */
+a.tap {
+  color: red;
+}
+
+.button.bg-tap {
+  background-color: red;
+}
+
+.button-transparent.tap {
+  color: red;
+}
+
+.button-outline.tap {
+  color: red;
+}

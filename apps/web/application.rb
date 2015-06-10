@@ -214,7 +214,7 @@ module Web
       I18n.backend.class.send(:include, I18n::Backend::Fallbacks) # ローカル言語に定義がない場合はデフォルト言語を使用する
       I18n.backend.load_translations(Dir.glob('config/locales/*.yml'))
       I18n.available_locales = [:ja, :en] # 日本語と英語を使用可能
-      I18n.default_locale = :ja # デフォルトは日本語
+      I18n.default_locale = :en # デフォルトは英語
       I18n.locale = :ja # 日本語を使用する
 
       ##

@@ -3,6 +3,9 @@ en:
     create_article:     'Create article'
     list_articles:      'Articles'
     list_users:         'Users'
+    config_menu:
+      user_settings:    'User settings'
+      sign_out:         'Sign out'
   user:
     name:               'Name'
     child_name:         'Child name'

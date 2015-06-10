@@ -3,6 +3,9 @@ ja:
     create_article:     '連絡事項作成'
     list_articles:      '連絡事項一覧'
     list_users:         '名簿'
+    config_menu:
+      user_settings:    '個人情報設定'
+      sign_out:         'ログアウト'
   user:
     name:               '氏名'
     child_name:         '子供の氏名'
