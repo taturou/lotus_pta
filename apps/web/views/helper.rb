@@ -5,7 +5,7 @@ module Web::View
 
   # パンくずリスト
   def breadcrumbs_base(crumbs)
-    html.div(class: 'mxn1 mb1 h5') do
+    html.div(class: 'mxn1 mb1 h3') do
       crumbs.each_with_index do |crumb, index|
         if crumb[:url]
           a(href: crumb[:url], class: 'button button-narrow button-transparent blue') do
