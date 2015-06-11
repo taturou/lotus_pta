@@ -3,6 +3,13 @@ DIGEST_REALM="Lotus-PTA"
 
 UserRepository.clear
 
+[
+  {name: "月組", grade: "年長"},
+].each do |homeroom_attrs|
+  homeroom = Homeroom.new(homeroom_attrs)
+  HomeroomRepository.persist(homeroom)
+end
+
 # Data is created by 「なんちゃって個人情報」(http://kazina.com/dummy/index.html)
 [
   [{login_name: "m-kido",      last_name: "城戸", first_name: "路子",   last_name_ruby: "きど",     first_name_ruby: "みちこ",     email: "kido_michiko@example.com",     phone: "080-9413-4937"},
@@ -34,6 +41,7 @@ UserRepository.clear
   child.passwd_hash = Digest::MD5.new.update('%s:%s:%s' % [child.login_name, DIGEST_REALM, child.login_name])
   child.child!
   child.mother = UserRepository.find_by_login_name(mother.login_name)
+  child.homeroom = HomeroomRepository.all[0]
   UserRepository.persist(child)
 end
 

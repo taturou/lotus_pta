@@ -1,3 +1,12 @@
+collection :homerooms do
+  entity     Homeroom
+  repository HomeroomRepository
+
+  attribute :id,    Integer
+  attribute :name,  String
+  attribute :grade, String
+end
+
 collection :users do
   entity     User
   repository UserRepository
@@ -15,6 +24,7 @@ collection :users do
   attribute :is_child,          Integer
   attribute :father_user_id,    Integer
   attribute :mother_user_id,    Integer
+  attribute :homeroom_id,       Integer
 end
 
 collection :articles do

@@ -2,7 +2,7 @@ require 'lotus/entity'
 
 class User
   include Lotus::Entity
-  attributes :login_name, :passwd_hash, :first_name, :first_name_ruby, :last_name, :last_name_ruby, :birthday, :phone, :email, :is_child, :father_user_id, :mother_user_id # :id is implicit
+  attributes :login_name, :passwd_hash, :first_name, :first_name_ruby, :last_name, :last_name_ruby, :birthday, :phone, :email, :is_child, :father_user_id, :mother_user_id, :homeroom_id # :id is implicit
 
   def fullname
     "#{last_name} #{first_name}"
@@ -44,6 +44,14 @@ class User
 
   def mother
     @mother ||= UserRepository.find(mother_user_id)
+  end
+
+  def homeroom=(homeroom)
+    self.homeroom_id = homeroom.id
+  end
+
+  def homeroom
+    @homeroom ||= HomeroomRepository.find(homeroom_id)
   end
 
   def articles_query(desc = true)

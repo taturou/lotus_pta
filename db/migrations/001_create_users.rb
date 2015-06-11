@@ -16,6 +16,8 @@ class CreateUsers < Sequel::Migration
       index :father_user_id
       Integer :mother_user_id
       index :mother_user_id
+      Integer :homeroom_id
+      index :homeroom_id
     end
   end
 
