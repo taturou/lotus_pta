@@ -10,5 +10,23 @@ module Web::Views::Users
           {icon: 'fa-user'}
         ])
     end
+
+    def num_read(article)
+      html.span do
+        i(class: 'fa fa-folder-open-o'){}
+        span do
+          "#{article.num_read}/#{parents.length - 1}"
+        end
+      end
+    end
+
+    def num_checked(article)
+      html.span do
+        i(class: 'fa fa-check-square-o'){}
+        span do
+          "#{article.num_checked}/#{parents.length - 1}"
+        end
+      end
+    end
   end
 end

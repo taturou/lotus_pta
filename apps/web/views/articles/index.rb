@@ -10,34 +10,20 @@ module Web::Views::Articles
         ])
     end
 
-    def num_readed(article)
-      logs = article.logs_query.all
-      logs.delete_if do |log|
-        log.kind != Log::KIND_OPEN
-      end
-      logs.uniq! do |log|
-        log.reader.id
-      end
+    def num_read(article)
       html.span do
         i(class: 'fa fa-folder-open-o'){}
         span do
-          "#{logs.length}/#{parents.length - 1}"
+          "#{article.num_read}/#{parents.length - 1}"
         end
       end
     end
 
     def num_checked(article)
-      logs = article.logs_query.all
-      logs.delete_if do |log|
-        log.kind != Log::KIND_SUBMIT
-      end
-      logs.uniq! do |log|
-        log.reader.id
-      end
       html.span do
         i(class: 'fa fa-check-square-o'){}
         span do
-          "#{logs.length}/#{parents.length - 1}"
+          "#{article.num_checked}/#{parents.length - 1}"
         end
       end
     end

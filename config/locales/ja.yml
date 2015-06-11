@@ -12,6 +12,7 @@ ja:
     phone_number:       '電話番号'
     email_address:      'メールアドレス'
   article:
+    created_articles:   '作成した連絡事項'
     title:              'タイトル'
     content:            '本文'
   news:

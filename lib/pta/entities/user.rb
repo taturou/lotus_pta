@@ -46,6 +46,11 @@ class User
     @mother ||= UserRepository.find(mother_user_id)
   end
 
+  def articles_query(desc = true)
+    query = ArticleRepository.query_by_owner(self)
+    query = query.desc(:id) if desc
+  end
+
   def logs_query(desc = true)
     query = LogRepository.query_by_reader(self)
     query = query.desc(:id) if desc

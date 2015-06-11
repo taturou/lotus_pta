@@ -4,9 +4,9 @@
   </div>
 
   <div class="flex mb1">
-    <div class="m0 flex-auto gray">
+    <a href="<%= routes.path(:user, id: article.owner.id) %>" class="m0 flex-auto gray">
       <%= article.owner.fullname %>
-    </div>
+    </a>
     <div class="m0 right gray">
       <%= article.created_at.ymdHM %>
     </div>

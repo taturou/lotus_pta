@@ -1,0 +1,51 @@
+<p class="h4"><%= t('article.created_articles') %></p>
+
+<div class="overflow-scroll">
+  <table class="table-light overflow-hidden rounded border">
+    <thead class="bg-darken-1 h6">
+      <tr>
+        <th class="center">
+          <i class="fa fa-calendar"></i>
+        </th>
+        <th class="center">
+          <i class="fa fa-file-text-o"></i>
+        </th>
+        <th class="center">
+          <i class="fa fa-navicon"></i>
+        </th>
+      </tr>
+    </thead>
+    <tbody class="h5">
+      <% if user.articles_query.all.length == 0 %>
+        <tr>
+          <th class="center">
+            -
+          </th>
+          <th class="center">
+            -
+          </th>
+          <th class="center">
+            -
+          </th>
+        </tr>
+      <% else %>
+        <% user.articles_query.all.each do |article| %>
+          <tr>
+            <th class="center">
+              <%= article.created_at.mdHM %>
+            </th>
+            <th class="center">
+              <a href='<%= routes.path(:article, id: article.id) %>'>
+                <%= article.title %>
+              </a>
+            </th>
+            <th class="center">
+              <%= num_read(article) %>
+              <%= num_checked(article) %>
+            </th>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
