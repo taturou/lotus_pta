@@ -11,49 +11,85 @@ module Web::Views::Articles
         ])
     end
 
-    def read_icon(article, reader)
-      if submitted?(article, reader)
+    def edit_icon
+      if readed?
+        html.div(class: 'button button-outline right gray mr1') do
+          i(class: 'fa fa-edit'){}
+          span(){ t('form.edit') }
+        end
+      else
+        html.a(href: routes.path(:edit_article, id: article.id),
+               class: 'button button-outline right blue mr1') do
+          i(class: 'fa fa-edit'){}
+          span(){ t('form.edit') }
+        end
+      end
+    end
+
+    def delete_icon
+      if readed?
+        html.div(class: 'button button-outline right gray') do
+          i(class: 'fa fa-trash-o'){}
+          span(){ t('form.delete') }
+        end
+      else
+        html.form(action: routes.path(:article, id: article.id), method: 'post') do
+          input(name: '_method', type: 'hidden', value: 'delete'){}
+          button(type: 'submit', class: 'button button-outline right blue') do
+            i(class: 'fa fa-trash-o'){}
+            span(){ t('form.delete') }
+          end
+        end
+      end
+    end
+
+    def read_icon(reader)
+      if submitted?(reader)
         html.i(class: 'fa fa-check-square-o'){}
-      elsif opened?(article, reader)
+      elsif opened?(reader)
         html.i(class: 'fa fa-folder-open-o'){}
       else
         html.i(class: 'fa fa-folder-o'){}
       end
     end
 
-    def read_date(article, reader)
-      unless opened?(article, reader)
+    def read_date(reader)
+      unless opened?(reader)
         html.a(href: routes.path(:link_article, id: article.id, reader_user_id: reader.id)) do
           i(class: 'fa fa-share'){}
         end
       else
-        accessed_at(article, reader)
+        accessed_at(reader)
       end
     end
 
     private
 
-    def opened?(article, reader)
-      logs = logs_as_article(article, reader)
+    def readed?
+      article.logs_query.all.length > 0
+    end
+
+    def opened?(reader)
+      logs = logs_as_article(reader)
       logs.delete_if do |log|
         log.kind != Log::KIND_OPEN
       end
       logs.length > 0
     end
 
-    def submitted?(article, reader)
-      logs = logs_as_article(article, reader)
+    def submitted?(reader)
+      logs = logs_as_article(reader)
       logs.delete_if do |log|
         log.kind != Log::KIND_SUBMIT
       end
       logs.length > 0
     end
 
-    def accessed_at(article, reader)
-      logs_as_article(article, reader).first.accessed_at.mdHM
+    def accessed_at(reader)
+      logs_as_article(reader).first.accessed_at.mdHM
     end
 
-    def logs_as_article(article, reader)
+    def logs_as_article(reader)
       logs = article.logs_query.all
       logs.delete_if do |log|
         log.reader.id != reader.id

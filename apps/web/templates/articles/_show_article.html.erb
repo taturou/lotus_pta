@@ -19,16 +19,7 @@
   <div class="flex">
     <div class="m0 flex-auto gray">
     </div>
-    <a href='<%= routes.path(:edit_article, id: article.id) %>' class="button button-outline right blue mr1">
-      <i class="fa fa-edit"></i>
-      <%= t('form.edit') %>
-    </a>
-    <form method="post" action='<%= routes.path(:article, id: article.id) %>'>
-      <input name="_method" type="hidden" value="delete" />
-      <button type="submit" class="button button-outline right blue">
-        <i class="fa fa-trash-o"></i>
-        <%= t('form.delete') %>
-      </button>
-    </form>
+    <%= edit_icon %>
+    <%= delete_icon %>
   </div>
 </div>
