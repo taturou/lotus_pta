@@ -5,9 +5,11 @@ module Web::Controllers::Articles
     expose :article
 
     def call(params)
-      owner = UserRepository.find_by_login_name(params.env['REMOTE_USER'])
+      login_user = UserRepository.find_by_login_name(params.env['REMOTE_USER'])
+      halt 401 unless login_user
+
       @article = Article.new
-      @article.owner = owner
+      @article.owner = login_user
     end
   end
 end

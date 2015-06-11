@@ -12,7 +12,7 @@ module Web::Views::Articles
     end
 
     def edit_icon
-      if readed?
+      if readed? || article.owner != login_user
         html.div(class: 'button button-outline right gray mr1') do
           i(class: 'fa fa-edit'){}
           span(){ t('form.edit') }
@@ -27,7 +27,7 @@ module Web::Views::Articles
     end
 
     def delete_icon
-      if readed?
+      if readed? || article.owner != login_user
         html.div(class: 'button button-outline right gray') do
           i(class: 'fa fa-trash-o'){}
           span(){ t('form.delete') }
