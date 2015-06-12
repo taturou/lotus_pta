@@ -32,7 +32,7 @@
         <% user.articles_query.all.each do |article| %>
           <tr>
             <th class="center">
-              <%= article.created_at.mdHM %>
+              <%= article.created_at.md %>
             </th>
             <th class="center">
               <a href='<%= routes.path(:article, id: article.id) %>'>
@@ -40,13 +40,26 @@
               </a>
             </th>
             <th class="center">
-              <%= num_read(article) %>
-              <br>
-              <%= num_checked(article) %>
+              <%= checked(article) %>
             </th>
           </tr>
         <% end %>
       <% end %>
     </tbody>
   </table>
+</div>
+
+<div class="h6">
+  <div class="flex">
+    <div class="m1">
+      <i class="fa fa-circle-o"></i>
+      :
+      <%= t('article.unconfirmed') %>
+    </div>
+    <div class="m1">
+      <i class="fa fa-check-circle-o"></i>
+      :
+      <%= t('article.confirmed') %>
+    </div>
+  </div>
 </div>

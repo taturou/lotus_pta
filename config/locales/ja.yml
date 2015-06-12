@@ -15,6 +15,8 @@ ja:
     created_articles:   '作成した連絡事項'
     title:              'タイトル'
     content:            '本文'
+    confirmed:          '全員確認済み'
+    unconfirmed:        '未確認者あり'
   news:
     prepared_by:        '作成者'
     creation_date:      '作成日'

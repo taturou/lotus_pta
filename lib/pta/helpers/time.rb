@@ -6,4 +6,8 @@ class DateTime
   def mdHM
     self.strftime("%m/%d %H:%M")
   end
+
+  def md
+    self.strftime("%m/%d")
+  end
 end

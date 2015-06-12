@@ -11,21 +11,11 @@ module Web::Views::Users
         ])
     end
 
-    def num_read(article)
-      html.span do
-        i(class: 'fa fa-folder-open-o'){}
-        span do
-          "#{article.num_read}/#{parents.length - 1}"
-        end
-      end
-    end
-
-    def num_checked(article)
-      html.span do
-        i(class: 'fa fa-check-square-o'){}
-        span do
-          "#{article.num_checked}/#{parents.length - 1}"
-        end
+    def checked(article)
+      if article.num_checked >= (parents.length - 1)
+        html.i(class: 'fa fa-check-circle-o'){}
+      else
+        html.i(class: 'fa fa-circle-o'){}
       end
     end
   end
