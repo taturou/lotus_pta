@@ -17,6 +17,9 @@ ja:
     content:            '本文'
     confirmed:          '全員確認済み'
     unconfirmed:        '未確認者あり'
+    deldlg_content:     'この連絡事項を<br>削除してもよいですか？'
+    deldlg_submit:      'OK'
+    deldlg_cancel:      'Cancel'
   news:
     prepared_by:        '作成者'
     creation_date:      '作成日'

@@ -17,6 +17,9 @@ en:
     content:            'Content'
     confirmed:          'Confirmed'
     unconfirmed:        'Unconfirmed'
+    deldlg_content:     'May I delete this article?'
+    deldlg_submit:      'OK'
+    deldlg_cancel:      'Cancel'
   news:
     prepared_by:        'Prepared by'
     creation_date:      'Creation date'
