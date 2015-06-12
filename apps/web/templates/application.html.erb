@@ -13,25 +13,43 @@
       <div class="p2 gray bg-navy relative clearfix h2">
         <div class="left button button-transparent p1 m0">
           <a href='<%= routes.path(:home) %>' class="gray">
-            <i class="fa fa-navicon"></i>
+            <i class="fa fa-home"></i>
           </a>
         </div>
         <div class="right">
           <div id="config-menu" class="inline-block">
-            <div id="background" class="fixed top-0 right-0 bottom-0 left-0 hide"></div>
+            <div id="background" class="fixed top-0 right-0 bottom-0 left-0 z4 hide"></div>
             <a id="button" class="button button-transparent rounded-top p1 m0 p1">
-              <i class="fa fa-gear"></i>
+              <i class="fa fa-navicon"></i>
             </a>
-            <div id="content" class="absolute right-0 mr1 nowrap navy bg-gray rounded z4 hide">
+            <div id="content" class="absolute right-0 left-0 flex-auto nowrap gray bg-navy z4 hide">
               <ul class="list-reset py1 mb0">
                 <li>
-                  <a href="/" class="button block button-transparent">
+                  <a href='<%= routes.path(:new_article) %>' class="button button-transparent block">
+                    <i class="fa fa-pencil fa-fw"></i>
+                    <%= t('home.create_article') %>
+                  </a>
+                </li>
+                <li>
+                  <a href='<%= routes.path(:articles) %>' class="button button-transparent block">
+                    <i class="fa fa-book fa-fw"></i>
+                    <%= t('home.list_articles') %>
+                  </a>
+                </li>
+                <li>
+                  <a href='<%= routes.path(:users) %>' class="button button-transparent block">
+                    <i class="fa fa-list-alt fa-fw"></i>
+                    <%= t('home.list_users') %>
+                  </a>
+                </li>
+                <li>
+                  <a href="/" class="button button-transparent block">
                     <i class="fa fa-user fa-fw"></i>
                     <%= t('home.config_menu.user_settings') %>
                   </a>
                 </li>
                 <li>
-                  <a href=<%= routes.path(:logout) %> class="button block button-transparent">
+                  <a href=<%= routes.path(:logout) %> class="button button-transparent block">
                     <i class="fa fa-sign-out fa-fw"></i>
                     <%= t('home.config_menu.sign_out') %>
                   </a>

@@ -3,16 +3,11 @@ $(function() {
   $("#config-menu").children("#button").on("click", function(event) {
     $(this).parent("#config-menu").children("#background").toggleClass("hide")
     $(this).parent("#config-menu").children("#content").toggleClass("hide")
-    $(this).toggleClass("navy");
-    $(this).toggleClass("bg-gray");
   });
 
   $("#config-menu").children("#background").on("click", function(event) {
     $(this).toggleClass("hide")
     $(this).parent("#config-menu").children("#content").toggleClass("hide")
-    var button = $(this).parent("#config-menu").children("#button")
-    button.toggleClass("navy");
-    button.toggleClass("bg-gray");
   });
 
   // ボタンをタップしたときのスタイル設定
