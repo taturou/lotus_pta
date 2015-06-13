@@ -40,6 +40,13 @@ $(function() {
     }
   });
 
+  // 多重送信防止
+  // （form 内の submit ボタンがクリックされると無効化）
+  $('form button[type=submit]').on('click', function(event) {
+    $(this).prop('disabled', true);
+    $(this).parents('form').submit();
+  });
+
   // textarea の自動拡大
   $('textarea').on('input click', function(event) {
     if(event.target.scrollHeight > event.target.offsetHeight) {
