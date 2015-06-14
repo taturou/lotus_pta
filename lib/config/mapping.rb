@@ -14,6 +14,7 @@ collection :users do
   attribute :id,                Integer
   attribute :login_name,        String
   attribute :passwd_hash,       String
+  attribute :is_admin,          Integer
   attribute :first_name,        String
   attribute :first_name_ruby,   String
   attribute :last_name,         String

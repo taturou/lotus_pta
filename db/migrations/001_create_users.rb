@@ -4,6 +4,7 @@ class CreateUsers < Sequel::Migration
       primary_key :id
       String :login_name
       String :passwd_hash
+      Integer :is_admin, default: 0
       String :first_name
       String :first_name_ruby
       String :last_name

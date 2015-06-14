@@ -17,5 +17,6 @@ namespace :db do
 
   task seed: :migrate do
     load 'db/seeds.rb'
+    load 'db/sample_data.rb'
   end
 end

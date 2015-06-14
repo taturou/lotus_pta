@@ -11,15 +11,19 @@ class UserRepository
     end.first      # 配列の最初の要素を返す
   end
 
+  def self.all
+    nil
+  end
+
   def self.parents
     query do
-      where(is_child: 0)
+      where(is_child: 0).not(id: 1)
     end.all
   end
 
   def self.children
     query do
-      where(is_child: 1)
+      where(is_child: 1).not(id: 1)
     end.all
   end
 end
