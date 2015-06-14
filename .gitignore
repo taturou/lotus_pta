@@ -1,3 +1,4 @@
 /.bundle/
+/db/pta_production.sqlite3
 /db/pta_development.sqlite3
 /db/pta_test.sqlite3
